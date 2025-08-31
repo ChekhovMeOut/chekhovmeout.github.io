@@ -1,9 +1,21 @@
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
 body {
+	display: flex;
+	flex-direction: column;
 	font-family: Arial, sans-serif;
 	max-width: 900px;
 	margin: 0 auto;
 	padding: 20px;
 	line-height: 1.6;
+	min-height: 100vh;
+}
+
+main {
+	flex: 1 0 auto;
 }
 
 
@@ -35,9 +47,10 @@ h1, h2 {
 /* Footer */
 footer {
 	text-align: center;
-	font-size: 0.9em;
-	color: #555;
+	font-size: 0.75em;
+	color: #666;
 	margin-top: 40px;
-	border-top: 1px solid #ccc;
-	padding-top: 15px;
+	border-top: 1px solid #eee;
+	padding: 10px 0;
+	flex-shrink: 0;
 }
