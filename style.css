@@ -23,12 +23,6 @@ html, body {
 	font-family: var(--font-family);
 }
 
-/*body { to be deleted?
-	display: flex;
-	flex-direction: column;
-	padding: 0;
-}*/
-
 /* Side-by-side container */
 .image-text-pair {
     display: flex;
@@ -208,7 +202,7 @@ header {
 
 /* Experience Section */
 body.experience {
-  background: url("assets/image-assets/hr-pipedesign.png") repeat;
+  background: url("https://www.istockphoto.com/photos/goat") repeat;
   object-fit: cover;
   background-size: cover;
   background-position: center;
@@ -261,10 +255,3 @@ body.experience {
         font-size: 1rem;
     }
 }
-
-/* DEBUG: Mobile test */
-/*@media (max-width: 768px) {
-  body {
-    background-color: hotpink; *//* DEBUG color *//*
-  }
-}*/
