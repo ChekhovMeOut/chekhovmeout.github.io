@@ -29,6 +29,30 @@ body {
 	padding: 0;
 }
 
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .image-text-pair {
+    flex-direction: column;   /* stack image + text vertically */
+    gap: 2rem;                /* smaller spacing */
+    text-align: center;
+    padding: 1rem;
+  }
+    .side-image-1 {
+    width: 80%;               /* scale image for small screens */
+    height: auto;
+  }
+    .text-block {
+    width: 100%;
+    align-items: center;       /* center text for mobile */
+    text-align: center;
+  }
+    nav a {
+        margin: 0 10px;
+        font-size: 1rem;
+    }
+}
+
+
 /* Side-by-side container */
 .image-text-pair {
   display: flex;          /* places image + text side by side */
@@ -59,10 +83,10 @@ body {
 
 /* Centered block container */
 .text-block-center {
-  display: block;          /* places image + text side by side */
+  display: block;
   text-align: center;
   justify-content: center;
-  align-content: center;           /* vertical alignment (center relative to image) */
+  align-content: center;
 }
 
 /* Typography */
