@@ -38,7 +38,7 @@ body {
 .image-text-pair {
   display: flex;          /* places image + text side by side */
   align-items: center;    /* vertical alignment (center relative to image) */
-  gap: 10vw;              /* space between image and text */
+  gap: 20vw;              /* space between image and text */
   flex-direction: row-reverse;
   justify-content: center;
 }
@@ -46,8 +46,10 @@ body {
 /* Image Settings */
 .side-image-1 {
   width: 30vw;           /* adjust image size */
-  height: auto;
+  height: 40vw;
   border-radius: 8px;     /* optional rounded corners */
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Text Container */
@@ -55,8 +57,18 @@ body {
   display: flex;
   flex-direction: column; /* stack headings and text vertically */
   justify-content: center; /* centers them relative to image */
-  align-items: flex-start; /* aligns text to the left */
+  align-items: center; /* aligns text to the left */
+  text-align: center;
   width: 30vw;
+}
+
+/* Centered block container */
+.text-block-center {
+  display: flex;          /* places image + text side by side */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;           /* vertical alignment (center relative to image) */
+  margin: 0 auto;
 }
 
 /* Typography */
@@ -76,7 +88,7 @@ h1 { /* website title header */
     align-items: center;
 }
 h2 { /* Main Colored header */
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--accent-color);
 }
 h3 {
@@ -85,7 +97,8 @@ h3 {
 }
 h4 {
     font-size: 1.2rem;
-
+    margin-bottom: 1rem;
+    line-height: 2.0;
 }
 h5 {
     font-size: 1rem;
