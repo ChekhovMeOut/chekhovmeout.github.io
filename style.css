@@ -116,22 +116,19 @@ p {
 
 /*header stuff*/
 a {
-	color: #F66E0D;
+	color: var(--text-color);
 	text-decoration: none;
 }
-
 a:hover {
 	text-decoration: none;
 
 }
-
 header {
     background-color: var(--background-color);
     width: 100%;
     position: sticky;
     z-index: 1000;
 }
-
 nav {
     display: flex;
     justify-content: center;
@@ -141,7 +138,6 @@ nav {
     padding: 0;
     height: 0px;
 }
-
 nav a {
     text-decoration: none;
     color: var(--text-color);
@@ -152,17 +148,14 @@ nav a {
     position: relative;
     transition: color 0.3s ease;
 }
-
 nav a:hover {
     color: #F66E0D;
 
 }
-
 nav a.active {
     color: #F66E0D;
 
 }
-
 nav a.active:after {
     content: '';
     padding-bottom: 8px;
@@ -184,4 +177,28 @@ footer {
 	padding: 20px 0;
 	border-top: 1px solid #444444;
 	flex-shrink: 0;
+}
+
+/* Button Container */
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;             /* space between icon + text */
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  border: 2px solid var(--primary-color);
+}
+.btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
