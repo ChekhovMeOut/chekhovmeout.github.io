@@ -13,11 +13,6 @@
   /* Fonts */
   --font-family: 'Oxygen', sans-serif;
   --font-weight: 300; /* 300, 400, 700 for light, medium, bold */
-
-  /* Spacing */
-  --padding-small: 8px;
-  --padding-medium: 16px;
-  --padding-large: 32px;
 }
 
 html, body {
@@ -64,11 +59,10 @@ body {
 
 /* Centered block container */
 .text-block-center {
-  display: flex;          /* places image + text side by side */
-  flex-direction: column;
+  display: block;          /* places image + text side by side */
+  text-align: center;
   justify-content: center;
-  align-items: center;           /* vertical alignment (center relative to image) */
-  margin: 0 auto;
+  align-content: center;           /* vertical alignment (center relative to image) */
 }
 
 /* Typography */
@@ -170,13 +164,20 @@ nav a.active:after {
 
 /* Footer */
 footer {
-	text-align: center;
-	font-size: 0.8em;
-	color: #AAAAAA;
-	margin-top: 60px;
-	padding: 20px 0;
-	border-top: 1px solid #444444;
-	flex-shrink: 0;
+	background: linear-gradient(to bottom, rgba(51, 51, 51, 0) 0%, #333333 100%);
+    border-top: 1px solid #444444;
+    display: block;
+    align-content: center;  /* centers horizontally */
+    justify-content: center; /* centers vertically */
+}
+
+/* Header */
+header {
+    background-color: var(--background-color);
+    height: 200px;
+    display: block;
+    align-content: center;  /* centers horizontally */
+    justify-content: center; /* centers vertically */
 }
 
 /* Button Container */
@@ -210,7 +211,6 @@ body.experience {
   background-size: cover;
   background-position: center;
 }
-
 .hero-banner {
   background: url("assets/experience-assets/blue-origin/BlueLogo.png") center no-repeat, #333333;
   border-radius: 8px;
@@ -219,7 +219,6 @@ body.experience {
   align-items: center;
   justify-content: center;
 }
-
 .gradient-bar {
   width: 100%;
   height: 400px;
