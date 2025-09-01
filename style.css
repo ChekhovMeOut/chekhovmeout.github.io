@@ -23,62 +23,40 @@ html, body {
 	font-family: var(--font-family);
 }
 
-body {
+/*body { to be deleted?
 	display: flex;
 	flex-direction: column;
 	padding: 0;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .image-text-pair {
-    flex-direction: column;   /* stack image + text vertically */
-    gap: 2rem;                /* smaller spacing */
-    text-align: center;
-    padding: 1rem;
-  }
-    .side-image-1 {
-    width: 80%;               /* scale image for small screens */
-    height: auto;
-  }
-    .text-block {
-    width: 100%;
-    align-items: center;       /* center text for mobile */
-    text-align: center;
-  }
-    nav a {
-        margin: 0 10px;
-        font-size: 1rem;
-    }
-}
-
+}*/
 
 /* Side-by-side container */
 .image-text-pair {
-  display: flex;          /* places image + text side by side */
-  align-items: center;    /* vertical alignment (center relative to image) */
-  gap: 20vw;              /* space between image and text */
-  flex-direction: row-reverse;
-  justify-content: center;
+    display: flex;
+    align-items: center;        /* Centers content horizontally */
+    align-content: center;      /* Centers content horizontally, for overflow */
+    justify-content: center;    /* Centers content vertically*/
+    gap: 20vw;                  /* space between image and text */
 }
 
 /* Image Settings */
 .side-image-1 {
-  width: 30vw;           /* adjust image size */
-  height: 40vw;
-  border-radius: 8px;     /* optional rounded corners */
-  object-fit: cover;
-  object-position: center;
+    width: 30vw;           /* adjust image size */
+    height: 40vw;
+    border-radius: 8px;     /* optional rounded corners */
+    object-fit: cover;
+    object-position: center;
 }
 
 /* Text Container */
 .text-block {
-  display: flex;
-  flex-direction: column; /* stack headings and text vertically */
-  justify-content: center; /* centers them relative to image */
-  align-items: center; /* aligns text to the left */
-  text-align: center;
-  width: 30vw;
+    object-position: center;
+    display: flex;
+    flex-direction: column;       /* stack headings and text vertically */
+    align-content: center;        /* Centers content horizontally */
+    justify-content: center;      /* Centers content vertically*/
+    align-items: flex-start;      /* aligns all content to the left */
+    text-align: left;             /* aligns text to the left */
+    width: 30vw;
 }
 
 /* Centered block container */
@@ -253,3 +231,40 @@ body.experience {
     rgba(51, 51, 51, 0) 100%
   );
 }
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .image-text-pair {
+    flex-direction: column;   /* stack image + text vertically */;
+    gap: 2rem;                /* smaller spacing */
+    text-align: center;
+    padding: 1rem;
+  }
+    .side-image-1 {
+    width: 80vw;               /* scale image for small screens */
+    height: auto;
+    margin: 0 auto;
+  }
+    .text-block {
+    width: 80vw;
+    align-items: center;       /* center text for mobile */
+    align-content: center;
+    text-align: center;
+    fnt-size: 5rem;
+  }
+    text-block-center {
+    width: 80vw;
+    }
+    nav a {
+        margin: 0 10px;
+        font-size: 1rem;
+    }
+}
+
+/* DEBUG: Mobile test */
+/*@media (max-width: 768px) {
+  body {
+    background-color: hotpink; *//* DEBUG color *//*
+  }
+}*/
