@@ -8,7 +8,8 @@
   --color-primary: #FFFFFF;
   --color-secondary: #FFFFFF;
   --color-background: #333333;
-  --color-accent: #F66E0D;
+  --color-accent: #F66E0D;  /* industrial orange */
+  /*--color-accent: #1DD1BD; */ /* cyan blue */
   --color-text: #FFFFFF;
   --color-text-muted: #F5F5F5;
   --color-border: #444444;
