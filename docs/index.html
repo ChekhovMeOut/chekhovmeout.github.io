@@ -1,25 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home - My Portfolio</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Ian Wiatric</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Ian Wiatric - Early career engineer seeking fresh engineering challenges. Explore my professional experience and personal projects.">
+</head>
 
+<body>
+    <!-- Header will be loaded dynamically -->
     <script src="load-header.js"></script>
 
-    <div class="image-text-pair">
-      <div class="text-block" style="content-align: center">
-        <h2>Welcome</h2>
-        <h4>My name is Ian. I am an early career professional looking for a fresh engineering challenge in my next role.<br><br>
-            I created this site to share more details about my professional experience and personal projects. But if you prefer a more traditional experience, there is a plain text resume <a href="contact.html" style="text-decoration: underline;">here</a>.<br><br>
-            Thank you for your interest and happy browsing!
-        </h4>
-      </div>
-        <img src="../assets/image-assets/headshot.jpg" alt="Headshot picture" class="side-image-1">
-    </div>
+    <!-- Main Content -->
+    <main>
+        <!-- Welcome Section -->
+        <section class="section">
+            <div class="container">
+                <article class="image-text-pair">
+                    <div class="text-block">
+                        <h2>Welcome</h2>
+                        <h4>
+                            My name is Ian. I am an early career professional looking for a fresh engineering challenge in my next role.
+                        </h4>
+                        <h4>
+                            I created this site to share more details about my professional experience and personal projects. But if you prefer a more traditional experience, there is a plain text resume <a href="contact.html" style="text-decoration: underline; color: var(--color-accent);">here</a>.
+                        </h4>
+                        <h4>
+                            Thank you for your interest and happy browsing!
+                        </h4>
+                    </div>
+                    <img src="../assets/image-assets/headshot.jpg"
+                         alt="Professional headshot of Ian Wiatric"
+                         class="side-image-1"
+                         loading="eager">
+                </article>
+            </div>
+        </section>
+    </main>
 
+    <!-- Footer will be loaded dynamically -->
     <script src="load-footer.js"></script>
-</html>
 
+    <script>
+        // Enhanced navigation highlighting for home page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add a small delay to ensure header is loaded
+            setTimeout(function() {
+                const homeLink = document.getElementById('nav-home');
+                if (homeLink) {
+                    homeLink.classList.add('active');
+                }
+            }, 100);
+        });
+
+        // Optional: Intersection Observer for scroll animations
+        if ('IntersectionObserver' in window) {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe the main content area for subtle entrance animation
+            const welcomeSection = document.querySelector('.image-text-pair');
+            if (welcomeSection) {
+                welcomeSection.style.opacity = '0.8';
+                welcomeSection.style.transform = 'translateY(20px)';
+                welcomeSection.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(welcomeSection);
+            }
+        }
+
+        // Enhanced link styling for better accessibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const resumeLink = document.querySelector('a[href="contact.html"]');
+            if (resumeLink) {
+                resumeLink.addEventListener('focus', function() {
+                    this.style.outline = '2px solid var(--color-accent)';
+                    this.style.outlineOffset = '2px';
+                });
+
+                resumeLink.addEventListener('blur', function() {
+                    this.style.outline = '';
+                    this.style.outlineOffset = '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

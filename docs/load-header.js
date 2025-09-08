@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var xhr = new XMLHttpRequest();
     
     // Configure it to fetch the header.html file
-    xhr.open('GET', 'header.html', true);
+    xhr.open('GET', '/docs/header.html', true);
     
     // Set up what to do when the request is complete
     xhr.onload = function() {

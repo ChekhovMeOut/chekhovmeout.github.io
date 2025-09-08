@@ -1,270 +1,458 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
 
-/* Declaring variables that are used globally */
+/* ========================================
+   CSS CUSTOM PROPERTIES (Design System)
+   ======================================== */
 :root {
-  /* Colors */
-  --primary-color: #FFFFFF;
-  --secondary-color: #FFFFFF;
-  --background-color: #333333;
-  --accent-color: #F66E0D;
-  --text-color: #FFFFFF;
-  --text-color-muted: #F5F5F5;
+  /* Color Palette */
+  --color-primary: #FFFFFF;
+  --color-secondary: #FFFFFF;
+  --color-background: #333333;
+  --color-accent: #F66E0D;
+  --color-text: #FFFFFF;
+  --color-text-muted: #F5F5F5;
+  --color-border: #444444;
 
-  /* Fonts */
-  --font-family: 'Oxygen', sans-serif;
-  --font-weight: 300; /* 300, 400, 700 for light, medium, bold */
+  /* Typography */
+  --font-family: 'Oxygen', system-ui, -apple-system, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* Spacing System (Mobile-first) */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 1rem;      /* 16px */
+  --space-md: 1.5rem;    /* 24px */
+  --space-lg: 2rem;      /* 32px */
+  --space-xl: 3rem;      /* 48px */
+  --space-2xl: 4rem;     /* 64px */
+
+  /* Layout */
+  --container-max-width: 1200px;
+  --content-max-width: 800px;
+  --border-radius: 8px;
+  --transition-base: 0.3s ease;
+
+  /* Component Sizes */
+  --image-width-mobile: 80vw;
+  --image-width-desktop: 30vw;
+  --text-width-mobile: 90vw;
+  --text-width-desktop: 30vw;
 }
 
-html, body {
-	height: 100%;
-	margin: 0;
-	background-color: var(--background-color);
-	color: var(--text-color);
-	font-family: var(--font-family);
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/*body { to be deleted?
-	display: flex;
-	flex-direction: column;
-	padding: 0;
-}*/
-
-/* Side-by-side container */
-.image-text-pair {
-    display: flex;
-    align-items: center;        /* Centers content horizontally */
-    align-content: center;      /* Centers content horizontally, for overflow */
-    justify-content: center;    /* Centers content vertically*/
-    gap: 20vw;                  /* space between image and text */
+html {
+  scroll-behavior: smooth;
 }
 
-/* Image Settings */
-.side-image-1 {
-    width: 30vw;           /* adjust image size */
-    height: 40vw;
-    border-radius: 8px;     /* optional rounded corners */
-    object-fit: cover;
-    object-position: center;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  min-height: 100vh;
 }
 
-/* Text Container */
-.text-block {
-    object-position: center;
-    display: flex;
-    flex-direction: column;       /* stack headings and text vertically */
-    align-content: center;        /* Centers content horizontally */
-    justify-content: center;      /* Centers content vertically*/
-    align-items: flex-start;      /* aligns all content to the left */
-    text-align: left;             /* aligns text to the left */
-    width: 30vw;
+/* Remove default margins from all headings and paragraphs */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
 }
 
-/* Centered block container */
-.text-block-center {
-  display: block;
+/* ========================================
+   TYPOGRAPHY SYSTEM
+   ======================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  line-height: 1.2;
+}
+
+/* Site Title */
+h1 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-bold);
   text-align: center;
-  justify-content: center;
-  align-content: center;
+  margin-bottom: var(--space-xs);
 }
 
-/* Typography */
-p, h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family);
-    font-weight: var(--font-weight);
-    color: var(--text-color);
-    margin: 1.5em 0 0.8em;
-    line-height: 1.6;
+/* Section Headers */
+h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
 }
-h1 { /* website title header */
-    font-size: 2.5rem;
-    font-weight: 700;
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-}
-h2 { /* Main Colored header */
-    font-size: 3rem;
-    color: var(--accent-color);
-}
+
+/* Subsection Headers */
 h3 {
-    font-size: 1.5rem;
-
+  font-size: clamp(1.3rem, 3vw, 1.5rem);
+  font-weight: var(--font-weight-normal);
+  margin-bottom: var(--space-sm);
 }
+
+/* Body Text Headers */
 h4 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    line-height: 2.0;
+  font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+  font-weight: var(--font-weight-light);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
 }
-h5 {
-    font-size: 1rem;
 
+/* Smaller Headers */
+h5, h6 {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: var(--font-weight-normal);
+  margin-bottom: var(--space-sm);
 }
-h6 {
-    font-size: 0.8rem;
 
-}
+/* Paragraph Text */
 p {
-  font-size: 1rem;                 /* font size */
-  margin-bottom: 1rem;             /* space after each paragraph */
-  text-align: left;                /* left-aligned text */
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  margin-bottom: var(--space-sm);
 }
 
-/*header stuff*/
-a {
-	color: var(--text-color);
-	text-decoration: none;
-}
-a:hover {
-	text-decoration: none;
+/* ========================================
+   LAYOUT COMPONENTS
+   ======================================== */
 
+/* Container for centering content */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
 }
+
+/* Main content sections */
+.section {
+  padding: var(--space-xl) 0;
+}
+
+/* ========================================
+   HEADER & NAVIGATION
+   ======================================== */
 header {
-    background-color: var(--background-color);
-    width: 100%;
-    position: sticky;
-    z-index: 1000;
+  background-color: var(--color-background);
+  padding: var(--space-lg) 0;
+  top: 0;
+  z-index: 100;
 }
+
+/* Header divider line */
+.center-hr {
+  width: min(20vw, 200px);
+  height: 3px;
+  background: var(--color-accent);
+  border: none;
+  margin: var(--space-sm) auto var(--space-lg);
+}
+
+/* Navigation */
 nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0;
-    height: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin: 0;
+  padding: 0;
 }
+
 nav a {
-    text-decoration: none;
-    color: var(--text-color);
-    margin: 0 20px;
-    padding: 0.5rem 0;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    position: relative;
-    transition: color 0.3s ease;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-normal);
+  letter-spacing: 0.5px;
+  padding: var(--space-xs) 0;
+  position: relative;
+  transition: color var(--transition-base);
 }
+
 nav a:hover {
-    color: #F66E0D;
-
+  color: var(--color-accent);
 }
+
 nav a.active {
-    color: #F66E0D;
-
-}
-nav a.active:after {
-    content: '';
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--accent-color);
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #F66E0D;
+  color: var(--color-accent);
 }
 
-/* Footer */
-footer {
-	background: linear-gradient(to bottom, rgba(51, 51, 51, 0) 0%, #333333 100%);
-    border-top: 1px solid #444444;
-    display: block;
-    align-content: center;  /* centers horizontally */
-    justify-content: center; /* centers vertically */
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-accent);
 }
 
-/* Header */
-header {
-    background-color: var(--background-color);
-    height: 200px;
-    display: block;
-    align-content: center;  /* centers horizontally */
-    justify-content: center; /* centers vertically */
+/* ========================================
+   CONTENT LAYOUTS
+   ======================================== */
+
+/* Image-Text Pair Layout */
+.image-text-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-lg) 0;
 }
+
+/* Alternate layout for even pairs */
+.image-text-pair:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Text Block */
+.text-block {
+  flex: 1;
+  max-width: 600px;
+  width: var(--text-width-desktop);
+}
+
+/* Images */
+.side-image-1 {
+  flex: 0 0 auto;
+  width: var(--image-width-desktop);
+  max-width: 400px;
+  aspect-ratio: 3/4;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Centered Text Blocks */
+.text-block-center {
+  text-align: center;
+  max-width: var(--content-max-width);
+  margin: 0 auto var(--space-2xl);
+  padding: 0 var(--space-md);
+}
+
+/* ========================================
+   BUTTONS & INTERACTIVE ELEMENTS
+   ======================================== */
 
 /* Button Container */
 .buttons {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-md);
   justify-content: center;
-  margin: 2rem 0;
+  flex-wrap: wrap;
+  margin: var(--space-lg) 0;
 }
+
+/* Button Styles */
 .btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;             /* space between icon + text */
-  padding: 0.75rem 1.5rem;
-  font-size: 1.2rem;
-  font-weight: 700;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
   text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.3s ease;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-base);
+  white-space: nowrap;
 }
+
 .btn:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
-/* Experience Section */
-body.experience {
-  background: url("assets/image-assets/hr-pipedesign.png") repeat;
-  object-fit: cover;
-  background-size: cover;
-  background-position: center;
-}
-.hero-banner {
-  background: url("assets/experience-assets/blue-origin/BlueLogo.png") center no-repeat, #333333;
-  border-radius: 8px;
-  border: none;
-  display: inline;
-  align-items: center;
-  justify-content: center;
-}
-.gradient-bar {
-  width: 100%;
-  height: 400px;
-  background: linear-gradient(
-    to bottom,
-    rgba(51, 51, 51, 0) 0%,
-    #333333 50%,
-    rgba(51, 51, 51, 0) 100%
-  );
+.btn i {
+  font-size: 1.2em;
 }
 
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  background: linear-gradient(to bottom, rgba(51, 51, 51, 0) 0%, #333333 100%);
+  position: sticky;
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
+  margin-top: var(--space-2xl);
+}
 
-/* Mobile responsiveness */
+footer p {
+  font-size: 0.875rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ========================================
+   ACCESSIBILITY & FOCUS STATES
+   ======================================== */
+a:focus,
+.btn:focus,
+nav a:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+   ======================================== */
+
+/* Tablet and smaller */
+@media (max-width: 1024px) {
+  :root {
+    --image-width-desktop: 40vw;
+    --text-width-desktop: 50vw;
+  }
+
+  .image-text-pair {
+    gap: var(--space-xl);
+  }
+}
+
+/* Mobile devices */
 @media (max-width: 768px) {
-    .image-text-pair {
-    flex-direction: column;   /* stack image + text vertically */;
-    gap: 2rem;                /* smaller spacing */
+  :root {
+    /* Adjust spacing for mobile */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 2.5rem;
+  }
+
+  /* Header adjustments */
+  header {
+    padding: var(--space-md) 0;
+  }
+
+  .center-hr {
+    width: 50vw;
+    margin: var(--space-xs) auto var(--space-md);
+  }
+
+  /* Navigation */
+  nav {
+    gap: var(--space-md);
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+
+  /* Image-text pairs become stacked */
+  .image-text-pair {
+    flex-direction: column !important;
+    gap: var(--space-lg);
     text-align: center;
-    padding: 1rem;
+    padding: var(--space-md) 0;
   }
-    .side-image-1 {
-    width: 80vw;               /* scale image for small screens */
-    height: auto;
-    margin: 0 auto;
+
+  /* Text blocks */
+  .text-block {
+    width: var(--text-width-mobile);
+    max-width: 100%;
   }
-    .text-block {
-    width: 80vw;
-    align-items: center;       /* center text for mobile */
-    align-content: center;
-    text-align: center;
-    fnt-size: 5rem;
+
+  /* Images */
+  .side-image-1 {
+    width: var(--image-width-mobile);
+    max-width: 350px;
+    aspect-ratio: 4/5;
   }
-    text-block-center {
-    width: 80vw;
-    }
-    nav a {
-        margin: 0 10px;
-        font-size: 1rem;
-    }
+
+  /* Centered text */
+  .text-block-center {
+    margin-bottom: var(--space-lg);
+    padding: 0 var(--space-sm);
+  }
+
+  /* Buttons */
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
 }
 
-/* DEBUG: Mobile test */
-/*@media (max-width: 768px) {
-  body {
-    background-color: hotpink; *//* DEBUG color *//*
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-sm);
   }
-}*/
+
+  nav {
+    gap: var(--space-sm);
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  .side-image-1 {
+    width: 95vw;
+    aspect-ratio: 1/1;
+  }
+
+  .text-block-center {
+    padding: 0 var(--space-xs);
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+  header,
+  footer,
+  nav,
+  .buttons {
+    display: none;
+  }
+
+  body {
+    color: #000;
+    background: #fff;
+  }
+
+  .image-text-pair {
+    break-inside: avoid;
+  }
+}
