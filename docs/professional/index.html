@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Dynamic Loader</title>
+    <title>Professional Experience</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../card-style.css">
 </head>
@@ -35,11 +35,8 @@
             const container = document.getElementById('projects-container');
 
             try {
-                // For this demo, we'll use inline data
-                // In your real implementation, replace this with:
                 const response = await fetch('professional.json');
                 const data = await response.json();
-
 
                 loadingDiv.style.display = 'none';
                 renderProjects(data.projects);
