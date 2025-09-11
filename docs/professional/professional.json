@@ -1,22 +1,40 @@
 {
   "professional": [
     {
-      "id": "Blue Origin",
+      "company": "Blue Origin",
       "title": "Test Engineer",
       "description": "Manufacturing chemical precision that scales all the way to orbit",
-      "image": "blue/BlueLogo.png",
-      "technologies": ["JavaScript", "HTML", "CSS"],
-      "demoUrl": "blue/index.html",
-      "githubUrl": "https://github.com/yourusername/project1"
+      "logo": "blue/logo.png",
+      "technologies": ["Cryogenics", "Rocket Engines", "Python"],
+      "pageLink": "blue/index.html",
+      "companyLink": "https://www.blueorigin.com/"
     },
     {
-      "id": "project2",
-      "title": "Another Cool Project",
-      "description": "This project solves an interesting problem.",
-      "image": "project2/screenshot.png",
-      "technologies": ["React", "Node.js"],
-      "demoUrl": "project2/index.html",
-      "githubUrl": "https://github.com/yourusername/project2"
+      "company": "Blue Origin",
+      "title": "Test Engineer",
+      "description": "Manufacturing chemical precision that scales all the way to orbit",
+      "logo": "blue/logo.png",
+      "technologies": ["Cryogenics", "Rocket Engines", "Python"],
+      "pageLink": "blue/index.html",
+      "companyLink": "https://www.blueorigin.com/"
+    },
+    {
+      "company": "Blue Origin",
+      "title": "Test Engineer",
+      "description": "Manufacturing chemical precision that scales all the way to orbit",
+      "logo": "blue/logo.png",
+      "technologies": ["Cryogenics", "Rocket Engines", "Python"],
+      "pageLink": "blue/index.html",
+      "companyLink": "https://www.blueorigin.com/"
+    },
+    {
+      "company": "Blue Origin",
+      "title": "Test Engineer",
+      "description": "Manufacturing chemical precision that scales all the way to orbit",
+      "logo": "blue/logo.png",
+      "technologies": ["Cryogenics", "Rocket Engines", "Python"],
+      "pageLink": "blue/index.html",
+      "companyLink": "https://www.blueorigin.com/"
     }
   ]
 }

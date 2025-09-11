@@ -31,6 +31,7 @@
   /* Layout */
   --container-max-width: 1200px;
   --content-max-width: 800px;
+  --hero-max-height: 400px;
   --border-radius: 8px;
   --transition-base: 0.3s ease;
 
@@ -133,6 +134,7 @@ p {
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
+  width: 60vw;
   padding: 0 var(--space-md);
 }
 

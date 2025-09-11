@@ -62,7 +62,7 @@
             const card = document.createElement('div');
             card.className = 'project-card';
             card.innerHTML = `
-                <img src="${project.image}"
+                <img src="${project.logo}"
                      alt="${project.title}"
                      class="project-image"
                      onerror="this.outerHTML='<div class=\\'placeholder-image\\'>Image not available</div>'">
@@ -78,8 +78,8 @@
                     </div>
 
                     <div class="project-links">
-                        ${project.demoUrl ? `<a href="${project.demoUrl}" class="project-link" target="_blank">View Demo</a>` : ''}
-                        ${project.githubUrl ? `<a href="${project.githubUrl}" class="project-link" target="_blank">View Code</a>` : ''}
+                        ${project.pageLink ? `<a href="${project.pageLink}" class="project-link">Read More</a>` : ''}
+                        ${project.companyLink ? `<a href="${project.companyLink}" class="project-link" target="_blank">Company Site</a>` : ''}
                     </div>
                 </div>
             `;
