@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "id": "project1",
+      "title": "My Awesome Project",
+      "description": "A brief description of what this project does.",
+      "image": "project1/thumbnail.jpg",
+      "technologies": ["JavaScript", "HTML", "CSS"],
+      "demoUrl": "project1/demo.html",
+      "githubUrl": "https://github.com/yourusername/project1"
+    },
+    {
+      "id": "project2",
+      "title": "Another Cool Project",
+      "description": "This project solves an interesting problem.",
+      "image": "project2/screenshot.png",
+      "technologies": ["React", "Node.js"],
+      "demoUrl": "project2/index.html",
+      "githubUrl": "https://github.com/yourusername/project2"
+    }
+  ]
+}

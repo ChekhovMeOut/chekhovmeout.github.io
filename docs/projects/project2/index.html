@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials & Process Engineer - Blue Origin</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../card-style.css">
+    <style>
+        /* Experience-specific styles */
+        .experience-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background: linear-gradient(135deg, #1a365d 0%, #2563eb 50%, #1e40af 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .experience-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .company-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(3rem, 12vw, 8rem);
+            font-weight: var(--font-weight-bold);
+            color: #2563eb;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            letter-spacing: 0.1em;
+        }
+
+        .experience-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(51, 51, 51, 0.95));
+            padding: var(--space-xl) var(--space-md) var(--space-lg);
+            z-index: 3;
+        }
+
+        .job-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metadata-value {
+            font-size: 1.1rem;
+            color: var(--color-text);
+            font-weight: var(--font-weight-normal);
+        }
+
+        .job-summary {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            border-top: 2px solid var(--color-accent);
+            padding-top: var(--space-md);
+            margin-top: var(--space-md);
+        }
+
+        .content-section {
+            padding: var(--space-2xl) 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--color-accent);
+            margin-bottom: var(--space-lg);
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: var(--space-sm);
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-lg);
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            margin: var(--space-xl) 0;
+        }
+
+        .gallery-main {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto var(--space-lg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-main img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-thumbnails {
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+            overflow-x: auto;
+            padding: var(--space-sm);
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-accent) var(--color-background);
+        }
+
+        .gallery-thumbnails::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .gallery-thumbnails::-webkit-scrollbar-track {
+            background: var(--color-background);
+            border-radius: 3px;
+        }
+
+        .gallery-thumbnails::-webkit-scrollbar-thumb {
+            background: var(--color-accent);
+            border-radius: 3px;
+        }
+
+        .thumbnail {
+            flex-shrink: 0;
+            width: 80px;
+            height: 60px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color var(--transition-base);
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--color-accent);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-lg);
+            transition: transform var(--transition-base);
+        }
+
+        .back-link:hover {
+            transform: translateX(-4px);
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .experience-hero {
+                height: 50vh;
+                min-height: 300px;
+            }
+
+            .company-logo {
+                font-size: clamp(2rem, 10vw, 4rem);
+            }
+
+            .experience-overlay {
+                padding: var(--space-lg) var(--space-sm) var(--space-md);
+            }
+
+            .metadata-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-sm);
+            }
+
+            .gallery-main img {
+                height: 250px;
+            }
+
+            .thumbnail {
+                width: 60px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header will be loaded dynamically -->
+    <script src="../../load-header.js"></script>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Back Navigation -->
+<!--        <section class="section" style="padding-bottom: 0;">
+            <div class="container">
+                <a href="index.html" class="back-link">
+                    <span>←</span> Back to Professional Experience
+                </a>
+            </div>
+        </section>-->
+
+        <!-- Hero Section -->
+        <section class="experience-hero">
+            <div class="company-logo">BLUE ORIGIN</div>
+            <div class="experience-overlay">
+                <div class="container" style="background-color: var(--color-background);">
+                    <h2 class="job-title">Materials & Process Engineer</h2>
+
+                    <div class="metadata-grid">
+                        <div class="metadata-item">
+                            <span class="metadata-label">Start</span>
+                            <span class="metadata-value">October 21, 2024</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">End</span>
+                            <span class="metadata-value">February 13, 2025</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">Company</span>
+                            <span class="metadata-value">Blue Origin</span>
+                        </div>
+                        <div class="metadata-item">
+                            <span class="metadata-label">Location</span>
+                            <span class="metadata-value">Huntsville, AL</span>
+                        </div>
+                    </div>
+
+                    <div class="job-summary">
+                        Manufacturing chemical precision that scales all the way to orbit
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Background</h2>
+                <p>
+                    Blue Origin is a private space company founded in 2000 with the goal of making spaceflight accessible to everyone. As a unique aerospace company with sites all across the United States, it seeks to radically reduce the cost of access to space with bold, manufacturing-first operational approaches. At its Huntsville, AL location, Blue Origin essentially a blank canvas; it has since transformed to regularly launching its suborbital New Shepard rocket and more recently, the heavy-lift New Glenn rocket.
+                </p>
+
+                <h2 class="section-title">My Role</h2>
+                <p>
+                    My responsibilities were to innovate, streamline, and support chemical processing operations at the engine manufacturing facility. Specifically, I specialized in cleaning, passivation, and verification (CPV) operations. My daily tasks included analyzing salt and process delays, reviewing test results, and making recommendations intended to focus mostly on the momentous BE-4 engine which generates over half a million pounds of thrust. The engine was also under the most scheduling pressure, which gave me real-time opportunities to see the effects of quality control on an extremely precise process.
+                </p>
+
+                <p>
+                    One of my major projects was to use statistical process control (SPC) to improve throughput and decrease variations in the process. First, I improved workflows over a documentation to reduce redundancy, decrease variability, and improve batch traceability. I then developed a proof-of-concept to continually assess performance based on historical CPV operations from these workflows. The enabled rigorous analysis of our process stability and capability where I could identify critical gaps in our process control for different allowable criteria.
+                </p>
+
+                <p>
+                    Another major responsibility of this role was to perform audits on both internal and external systems, including calibration maintenance projects and inventory chain issues involving the development of ideal acid (HCl) operating capabilities. Externally, I performed supplier audits on Blue Origin's "special processes," some of which regularly deal with Hydrazine and Ammonia. I found it particularly interesting to observe the complex yet critical dynamic between all the involved parties – sourcing manufacturing engineers, quality control, supplier technicians, supply chain, and MRO engineers.
+                </p>
+
+                <h2 class="section-title">Culture</h2>
+                <p>
+                    I was pleased with both a wonderful mentor and supervisor at BO. They felt more everyone at the company truly and deeply believed in the value of space accessibility. However, the company has experienced some growing pains during the transition from a small research organization to a profit-driven manufacturing company. This unfortunately led to challenges for employees, particularly through a reduction in which I was affected.
+                </p>
+
+                <p>
+                    I was admittedly disappointed that this opportunity for which I had relocated just 4 months ago, was abruptly cut short. I am still grateful for the professional development and connections I made during my time at Blue. The flexible pace of manufacturing was fascinating and rewarding to be a part of.
+                </p>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Project Gallery</h2>
+                <div class="image-gallery">
+                    <div class="gallery-main">
+                        <img id="main-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23001122'/%3E%3Ccircle cx='400' cy='200' r='30' fill='%23ffffff'/%3E%3Ctext x='400' y='350' text-anchor='middle' fill='%23ffffff' font-size='16'%3ERocket Launch%3C/text%3E%3C/svg%3E" alt="Blue Origin rocket launch">
+                    </div>
+                    <div class="gallery-thumbnails">
+                        <div class="thumbnail active" onclick="changeImage(this, 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23001122\'/%3E%3Ccircle cx=\'400\' cy=\'200\' r=\'30\' fill=\'%23ffffff\'/%3E%3Ctext x=\'400\' y=\'350\' text-anchor=\'middle\' fill=\'%23ffffff\' font-size=\'16\'%3ERocket Launch%3C/text%3E%3C/svg%3E', 'Blue Origin rocket launch')">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='60' viewBox='0 0 80 60'%3E%3Crect width='80' height='60' fill='%23001122'/%3E%3Ccircle cx='40' cy='30' r='8' fill='%23ffffff'/%3E%3C/svg%3E" alt="Rocket launch thumbnail">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage(this, 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%232563eb\'/%3E%3Crect x=\'300\' y=\'150\' width=\'200\' height=\'100\' fill=\'%23ffffff\' rx=\'10\'/%3E%3Ctext x=\'400\' y=\'350\' text-anchor=\'middle\' fill=\'%23ffffff\' font-size=\'16\'%3EEngine Testing%3C/text%3E%3C/svg%3E', 'Blue Origin engine testing facility')">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='60' viewBox='0 0 80 60'%3E%3Crect width='80' height='60' fill='%232563eb'/%3E%3Crect x='30' y='22' width='20' height='16' fill='%23ffffff' rx='2'/%3E%3C/svg%3E" alt="Engine testing thumbnail">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage(this, 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23064e3b\'/%3E%3Cpolygon points=\'350,150 450,150 450,250 350,250\' fill=\'%23ffffff\'/%3E%3Ctext x=\'400\' y=\'350\' text-anchor=\'middle\' fill=\'%23ffffff\' font-size=\'16\'%3EManufacturing Floor%3C/text%3E%3C/svg%3E', 'Blue Origin manufacturing facility')">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='60' viewBox='0 0 80 60'%3E%3Crect width='80' height='60' fill='%23064e3b'/%3E%3Cpolygon points='30,22 50,22 50,38 30,38' fill='%23ffffff'/%3E%3C/svg%3E" alt="Manufacturing thumbnail">
+                        </div>
+                        <div class="thumbnail" onclick="changeImage(this, 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%235b21b6\'/%3E%3Ccircle cx=\'350\' cy=\'200\' r=\'20\' fill=\'%23ffffff\'/%3E%3Ccircle cx=\'450\' cy=\'200\' r=\'20\' fill=\'%23ffffff\'/%3E%3Ctext x=\'400\' y=\'350\' text-anchor=\'middle\' fill=\'%23ffffff\' font-size=\'16\'%3EHuntsville Facility%3C/text%3E%3C/svg%3E', 'Blue Origin Huntsville facility exterior')">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='60' viewBox='0 0 80 60'%3E%3Crect width='80' height='60' fill='%235b21b6'/%3E%3Ccircle cx='35' cy='30' r='5' fill='%23ffffff'/%3E%3Ccircle cx='45' cy='30' r='5' fill='%23ffffff'/%3E%3C/svg%3E" alt="Facility thumbnail">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be loaded dynamically -->
+    <script src="../../load-footer.js"></script>
+
+    <script>
+        // Navigation highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const professionalLink = document.getElementById('nav-professional');
+                if (professionalLink) {
+                    professionalLink.classList.add('active');
+                }
+            }, 100);
+        });
+
+        // Image gallery functionality
+        function changeImage(thumbnail, src, alt) {
+            const mainImage = document.getElementById('main-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+
+            // Remove active class from all thumbnails
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+
+            // Add active class to clicked thumbnail
+            thumbnail.classList.add('active');
+
+            // Update main image
+            mainImage.src = src;
+            mainImage.alt = alt;
+        }
+
+        // Keyboard navigation for gallery
+        document.addEventListener('keydown', function(e) {
+            const thumbnails = Array.from(document.querySelectorAll('.thumbnail'));
+            const activeThumbnail = document.querySelector('.thumbnail.active');
+            const currentIndex = thumbnails.indexOf(activeThumbnail);
+
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                thumbnails[currentIndex - 1].click();
+            } else if (e.key === 'ArrowRight' && currentIndex < thumbnails.length - 1) {
+                thumbnails[currentIndex + 1].click();
+            }
+        });
+    </script>
+</body>
+</html>

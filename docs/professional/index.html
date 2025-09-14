@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Experience</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../card-style.css">
+</head>
+<body>
+    <!-- Header -->
+    <script src="../load-header.js"></script>
+
+    <!-- Page Introduction -->
+    <section class="section">
+        <div class="container">
+            <div class="text-block-center">
+                <h2>Professional Experience</h2>
+                <h4>Engineering experience at scales ranging from startups to large manufacturers.<br>Positions are ordered by recency.</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Error & Loading Messages -->
+    <section>
+        <div id="loading" class="loading">Loading projects...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="projects-container" class="projects-container"></div>
+    </section>
+    
+    <!-- Footer -->
+    <script src="../load-footer.js"></script>
+
+    <script>
+        // Load projects from JSON file
+        async function loadProjects() {
+            const loadingDiv = document.getElementById('loading');
+            const errorDiv = document.getElementById('error');
+            const container = document.getElementById('projects-container');
+
+            try {
+                const response = await fetch('professional.json');
+                const data = await response.json();
+
+                loadingDiv.style.display = 'none';
+                renderProjects(data.professional);
+
+            } catch (error) {
+                console.error('Error loading projects:', error);
+                loadingDiv.style.display = 'none';
+                errorDiv.style.display = 'block';
+                errorDiv.textContent = 'Failed to load projects. Please try again later.';
+            }
+        }
+        
+        // Create a project card element
+        function createProjectCard(project) {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `
+                <img src="${project.logo}"
+                     alt="${project.title}"
+                     class="project-image"
+                     onerror="this.outerHTML='<div class=\\'placeholder-image\\'>Image not available</div>'">
+
+                <div class="project-content">
+                    <h3 class="project-title">${project.title}</h3>
+                    <p class="project-description">${project.description}</p>
+
+                    <div class="project-technologies">
+                        ${project.technologies.map(tech =>
+                            `<span class="tech-tag">${tech}</span>`
+                        ).join('')}
+                    </div>
+
+                    <div class="project-links">
+                        ${project.pageLink ? `<a href="${project.pageLink}" class="project-link">Read More</a>` : ''}
+                        ${project.companyLink ? `<a href="${project.companyLink}" class="project-link" target="_blank">Company Site</a>` : ''}
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Render projects to the DOM
+        function renderProjects(projects) {
+            const container = document.getElementById('projects-container');
+
+            projects.forEach(project => {
+                const projectCard = createProjectCard(project);
+                container.appendChild(projectCard);
+            });
+        }
+
+        // Load projects when the page loads
+        document.addEventListener('DOMContentLoaded', loadProjects);
+    </script>
+</body>
+</html>
