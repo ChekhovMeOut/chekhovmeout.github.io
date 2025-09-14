@@ -21,15 +21,18 @@
         </div>
     </section>
 
-    <div id="loading" class="loading">Loading projects...</div>
-    <div id="error" class="error" style="display: none;"></div>
+    <!-- Error & Loading Messages -->
+    <section>
+        <div id="loading" class="loading">Loading projects...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="projects-container" class="projects-container"></div>
+    </section>
     
-    <div id="projects-container" class="projects-container"></div>
-
     <!-- Footer -->
     <script src="../load-footer.js"></script>
 
     <script>
+        // Load projects from JSON file
         async function loadProjects() {
             const loadingDiv = document.getElementById('loading');
             const errorDiv = document.getElementById('error');
@@ -49,16 +52,8 @@
                 errorDiv.textContent = 'Failed to load projects. Please try again later.';
             }
         }
-
-        function renderProjects(projects) {
-            const container = document.getElementById('projects-container');
-
-            projects.forEach(project => {
-                const projectCard = createProjectCard(project);
-                container.appendChild(projectCard);
-            });
-        }
-
+        
+        // Create a project card element
         function createProjectCard(project) {
             const card = document.createElement('div');
             card.className = 'project-card';
@@ -86,6 +81,16 @@
             `;
 
             return card;
+        }
+
+        // Render projects to the DOM
+        function renderProjects(projects) {
+            const container = document.getElementById('projects-container');
+
+            projects.forEach(project => {
+                const projectCard = createProjectCard(project);
+                container.appendChild(projectCard);
+            });
         }
 
         // Load projects when the page loads

@@ -66,31 +66,33 @@ body {
   min-height: 100vh;
 }
 
-/* Remove default margins from all headings and paragraphs */
+
+/* ========================================
+   TYPOGRAPHY SYSTEM
+   ======================================== */
+
+/* Remove default margins from all text */
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0;
 }
 
-/* ========================================
-   TYPOGRAPHY SYSTEM
-   ======================================== */
-h1, h2, h3, h4, h5, h6 {
+/* Header Styles */
+   h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family);
   line-height: 1.2;
 }
 
 /* Site Title */
 h1 {
-  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: var(--font-weight-bold);
-  text-align: center;
   margin-bottom: var(--space-xs);
 }
 
 /* Section Headers */
 h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: var(--font-weight-bold);
   color: var(--color-accent);
   margin-bottom: var(--space-sm);
@@ -98,9 +100,11 @@ h2 {
 
 /* Subsection Headers */
 h3 {
-  font-size: clamp(1.3rem, 3vw, 1.5rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: var(--font-weight-normal);
+  border-bottom: 1px solid var(--color-accent);
   margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-sm);
 }
 
 /* Body Text Headers */
@@ -122,8 +126,8 @@ h5, h6 {
 /* Paragraph Text */
 p {
   font-size: clamp(1rem, 2vw, 1.1rem);
-  line-height: 1.6;
-  margin-bottom: var(--space-sm);
+  line-height: 1.8;
+  margin-bottom: var(--space-lg);
 }
 
 /* ========================================
@@ -155,11 +159,11 @@ header {
 
 /* Header divider line */
 .center-hr {
-  width: min(20vw, 200px);
+  width: 400px;
   height: 3px;
   background: var(--color-accent);
   border: none;
-  margin: var(--space-sm) auto var(--space-lg);
+  margin: var(--space-md) auto var(--space-md);
 }
 
 /* Navigation */
@@ -285,6 +289,13 @@ nav a.active::after {
   font-size: 1.2em;
 }
 
+.company-link {
+  align-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-xs);
+  width: 50%;
+}
+
 /* ========================================
    FOOTER
    ======================================== */
@@ -362,7 +373,7 @@ nav a:focus {
 
   .center-hr {
     width: 50vw;
-    margin: var(--space-xs) auto var(--space-md);
+    margin: var(--space-sm) auto var(--space-sm);
   }
 
   /* Navigation */
