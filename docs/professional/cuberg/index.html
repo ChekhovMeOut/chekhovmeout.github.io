@@ -214,8 +214,9 @@
     fetch('../professional.json')
         .then(response => response.json())
         .then(data => {
-            // Find the Blue Origin entry
-            const RelevantExpData = data.professional.find(entry => entry.company === "Blue Origin");
+            // Find the Blue Origin entry  
+            
+            const RelevantExpData = data.professional.find(entry => entry.company === getCurrentFolderName());
             
             if (RelevantExpData) {
                 // Update metadata values
@@ -412,6 +413,13 @@
                 thumbnails[currentIndex + 1].click();
             }
         });
+
+        // Get current page's folder name
+        function getCurrentFolderName() {
+            const url = new URL(window.location.href);
+            const pathSegments = url.pathname.split('/').filter(segment => segment);
+            return pathSegments[pathSegments.length - 2] || 'root';
+        }
     </script>
 </body>
 

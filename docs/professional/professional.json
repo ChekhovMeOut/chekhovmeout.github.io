@@ -1,40 +1,52 @@
 {
   "professional": [
     {
-      "company": "Blue Origin",
-      "title": "Test Engineer",
-      "description": "Manufacturing chemical precision that scales all the way to orbit",
-      "logo": "blue/logo.png",
+      "company":      "Blue Origin",
+      "title":        "Materials & Process Engineer",
+      "description":  "Manufacturing chemical precision that scales all the way to orbit",
+      "logo":         "blue/logo.png",
       "technologies": ["Cryogenics", "Rocket Engines", "Python"],
-      "pageLink": "blue/index.html",
-      "companyLink": "https://www.blueorigin.com/"
+      "pageLink":     "blue/index.html",
+      "companyLink":  "https://www.blueorigin.com/",
+      "startDate":    "Oct 21, 2024",
+      "endDate":      "Present",
+      "location":     "Huntsville, AL"
     },
     {
-      "company": "Blue Origin",
-      "title": "Test Engineer",
-      "description": "Manufacturing chemical precision that scales all the way to orbit",
-      "logo": "blue/logo.png",
+      "company":      "GenerationBio",
+      "title":        "Drug Discovery Co-op",
+      "description":  "Novel drug design and assay development for genetic medicines",
+      "logo":         "generation/logo.png",
       "technologies": ["Cryogenics", "Rocket Engines", "Python"],
-      "pageLink": "blue/index.html",
-      "companyLink": "https://www.blueorigin.com/"
+      "pageLink":     "generation/index.html",
+      "companyLink":  "https://generationbio.com/",
+      "startDate":    "Jan 1, 2023",
+      "endDate":      "Aug 31, 2023",
+      "location":     "Cambridge, MA"
     },
     {
-      "company": "Blue Origin",
-      "title": "Test Engineer",
-      "description": "Manufacturing chemical precision that scales all the way to orbit",
-      "logo": "blue/logo.png",
+      "company":      "Charles Stark Draper Laboratory",
+      "title":        "Chemistry and Materials Science Co-op",
+      "description":  "Materials testing for mission-critical defense applications",
+      "logo":         "draper/logo.png",
       "technologies": ["Cryogenics", "Rocket Engines", "Python"],
-      "pageLink": "blue/index.html",
-      "companyLink": "https://www.blueorigin.com/"
+      "pageLink":     "draper/index.html",
+      "companyLink":  "https://www.draper.com/",
+      "startDate":    "Jan 1, 2022",
+      "endDate":      "Aug 31, 2022",
+      "location":     "Cambridge, MA"
     },
     {
-      "company": "Blue Origin",
-      "title": "Test Engineer",
-      "description": "Manufacturing chemical precision that scales all the way to orbit",
-      "logo": "blue/logo.png",
+      "company":      "Cuberg",
+      "title":        "Battery Engineering Co-op",
+      "description":  "Electrochemistry research in a Bay Area start-up turned multinational",
+      "logo":         "cuberg/logo.png",
       "technologies": ["Cryogenics", "Rocket Engines", "Python"],
-      "pageLink": "blue/index.html",
-      "companyLink": "https://www.blueorigin.com/"
+      "pageLink":     "cuberg/index.html",
+      "companyLink":  "https://cuberg.net/",
+      "startDate":    "Jan 1, 2021",
+      "endDate":      "Jun 30, 2021",
+      "location":     "Emeryville, CA"
     }
   ]
 }
