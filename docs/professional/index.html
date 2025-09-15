@@ -9,16 +9,14 @@
 </head>
 <body>
     <!-- Header -->
-    <script src="../load-header.js"></script>
+    <script src="/load-header.js"></script>
 
     <!-- Page Introduction -->
-    <section class="section">
-        <div class="container">
+    <section class="section" justify-content="center">
             <div class="text-block-center">
                 <h2>Professional Experience</h2>
-                <h4>Engineering experience at scales ranging from startups to large manufacturers.<br>Positions are ordered by recency.</h4>
-            </div>
-        </div>
+                <h4>Engineering experience at scales ranging from startups to large manufacturers. Positions are ordered by recency.</h4>
+            </div> 
     </section>
 
     <!-- Error & Loading Messages -->
@@ -29,7 +27,7 @@
     </section>
     
     <!-- Footer -->
-    <script src="../load-footer.js"></script>
+    <script src="/load-footer.js"></script>
 
     <script>
         // Load projects from JSON file
@@ -57,6 +55,23 @@
         function createProjectCard(project) {
             const card = document.createElement('div');
             card.className = 'project-card';
+
+            // Only add click event and style cursor if pageLink exists
+            if (project.pageLink) {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    window.location.href = project.pageLink;
+                });
+            }
+             // Add hover effects
+            card.addEventListener('mouseenter', () => {
+                card.style.border = '1px solid var(--color-accent)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.border = '1px solid var(--color-border)';
+            });
+
             card.innerHTML = `
                 <img src="${project.logo}"
                      alt="${project.title}"
@@ -71,11 +86,6 @@
                         ${project.technologies.map(tech =>
                             `<span class="tech-tag">${tech}</span>`
                         ).join('')}
-                    </div>
-
-                    <div class="project-links">
-                        ${project.pageLink ? `<a href="${project.pageLink}" class="project-link">Read More</a>` : ''}
-                        ${project.companyLink ? `<a href="${project.companyLink}" class="project-link" target="_blank">Company Site</a>` : ''}
                     </div>
                 </div>
             `;
