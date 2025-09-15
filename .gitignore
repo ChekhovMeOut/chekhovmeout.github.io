@@ -3,6 +3,6 @@
 /workspace.xml
 /startup.sh
 
-/.vscode
-/.idea
-
+.vscode/
+.idea/
+startup.sh
