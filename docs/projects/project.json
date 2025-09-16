@@ -1,0 +1,64 @@
+{
+  "instances": [
+    {
+      "name":         "Molecular Simulations",
+      "title":        "Materials & Process Engineer",
+      "description":  "Technical research project to identify new antibiotics for drug resistant microbes",
+      "logo":         "Molecular Simulations/hero.png",
+      "technologies": ["Cryogenics", "Rocket Engines", "Python"],
+      "pageLink":     "Molecular Simulations/index.html",
+      "companyLink":  "https://www.blueorigin.com/",
+      "startDate":    "Oct 21, 2024",
+      "endDate":      "Present",
+      "location":     "Huntsville, AL"
+    },
+    {
+      "name":      "Engineering Education",
+      "title":        "Drug Discovery Co-op",
+      "description":  "Pedagogy research project to inspire new engineers",
+      "logo":         "Engineering Education/hero.png",
+      "technologies": ["Cryogenics", "Rocket Engines", "Python"],
+      "pageLink":     "Engineering Education/index.html",
+      "companyLink":  "https://generationbio.com/",
+      "startDate":    "Jan 1, 2023",
+      "endDate":      "Aug 31, 2023",
+      "location":     "Cambridge, MA"
+    },
+    {
+      "name":      "Mycoprotein Production",
+      "title":        "Chemistry and Materials Science Co-op",
+      "description":  "Design & validate a microbial fermentation process from scratch",
+      "logo":         "Mycoprotein Production/hero.png",
+      "technologies": ["Cryogenics", "Rocket Engines", "Python"],
+      "pageLink":     "Mycoprotein Production/index.html",
+      "companyLink":  "https://www.draper.com/",
+      "startDate":    "Jan 1, 2022",
+      "endDate":      "Aug 31, 2022",
+      "location":     "Cambridge, MA"
+    },
+    {
+      "name":      "Rubiks Robotics",
+      "title":        "Battery Engineering Co-op",
+      "description":  "Passion project to mechanically solve the Rubik's cube",
+      "logo":         "Rubiks Robotics/hero.png",
+      "technologies": ["Cryogenics", "Rocket Engines", "Python"],
+      "pageLink":     "Rubiks Robotics/index.html",
+      "companyLink":  "https://cuberg.net/",
+      "startDate":    "Jan 1, 2021",
+      "endDate":      "Jun 30, 2021",
+      "location":     "Emeryville, CA"
+    },
+    {
+      "name":      "Digital Modeling",
+      "title":        "Battery Engineering Co-op",
+      "description":  "Casual creative hobby",
+      "logo":         "Digital Modeling/hero.png",
+      "technologies": ["Cryogenics", "Rocket Engines", "Python"],
+      "pageLink":     "Digital Modeling/index.html",
+      "companyLink":  "https://cuberg.net/",
+      "startDate":    "Jan 1, 2021",
+      "endDate":      "Jun 30, 2021",
+      "location":     "Emeryville, CA"
+    }
+  ]
+}

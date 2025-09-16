@@ -3,46 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Dynamic Loader</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../card-style.css">
+    <title>Professional Experience</title>
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/card-style.css">
 </head>
 <body>
     <!-- Header -->
-    <script src="../load-header.js"></script>
+    <script src="/load-header.js"></script>
 
     <!-- Page Introduction -->
-    <section class="section">
-        <div class="container">
+    <section class="section" justify-content="center">
             <div class="text-block-center">
                 <h2>Personal Projects</h2>
                 <h4>Finished and ongoing projects for academic interest, pleasure, or both. Projects are roughly ordered by recency.</h4>
-            </div>
-        </div>
+            </div> 
     </section>
 
-    <div id="loading" class="loading">Loading projects...</div>
-    <div id="error" class="error" style="display: none;"></div>
-    <div id="projects-container" class="projects-container"></div>
-
+    <!-- Error & Loading Messages -->
+    <section>
+        <div id="loading" class="loading">Loading projects...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="projects-container" class="projects-container"></div>
+    </section>
+    
     <!-- Footer -->
-    <script src="../load-footer.js"></script>
+    <script src="/load-footer.js"></script>
 
     <script>
+        // Load projects from JSON file
         async function loadProjects() {
             const loadingDiv = document.getElementById('loading');
             const errorDiv = document.getElementById('error');
             const container = document.getElementById('projects-container');
 
             try {
-                // For this demo, we'll use inline data
-                // In your real implementation, replace this with:
-                const response = await fetch('projects.json');
+                const response = await fetch('project.json');
                 const data = await response.json();
 
-
                 loadingDiv.style.display = 'none';
-                renderProjects(data.projects);
+                renderProjects(data.instances);
 
             } catch (error) {
                 console.error('Error loading projects:', error);
@@ -51,27 +50,36 @@
                 errorDiv.textContent = 'Failed to load projects. Please try again later.';
             }
         }
-
-        function renderProjects(projects) {
-            const container = document.getElementById('projects-container');
-
-            projects.forEach(project => {
-                const projectCard = createProjectCard(project);
-                container.appendChild(projectCard);
-            });
-        }
-
+        
+        // Create a project card element
         function createProjectCard(project) {
             const card = document.createElement('div');
             card.className = 'project-card';
+
+            // Only add click event and style cursor if pageLink exists
+            if (project.pageLink) {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    window.location.href = project.pageLink;
+                });
+            }
+             // Add hover effects
+            card.addEventListener('mouseenter', () => {
+                card.style.border = '1px solid var(--color-accent)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.border = '1px solid var(--color-border)';
+            });
+
             card.innerHTML = `
-                <img src="${project.image}"
+                <img src="${project.logo}"
                      alt="${project.title}"
                      class="project-image"
                      onerror="this.outerHTML='<div class=\\'placeholder-image\\'>Image not available</div>'">
 
                 <div class="project-content">
-                    <h3 class="project-title">${project.title}</h3>
+                    <h3 class="project-title">${project.name}</h3>
                     <p class="project-description">${project.description}</p>
 
                     <div class="project-technologies">
@@ -79,15 +87,20 @@
                             `<span class="tech-tag">${tech}</span>`
                         ).join('')}
                     </div>
-
-                    <div class="project-links">
-                        ${project.demoUrl ? `<a href="${project.demoUrl}" class="project-link" target="_blank">View Demo</a>` : ''}
-                        ${project.githubUrl ? `<a href="${project.githubUrl}" class="project-link" target="_blank">View Code</a>` : ''}
-                    </div>
                 </div>
             `;
 
             return card;
+        }
+
+        // Render projects to the DOM
+        function renderProjects(projects) {
+            const container = document.getElementById('projects-container');
+
+            projects.forEach(project => {
+                const projectCard = createProjectCard(project);
+                container.appendChild(projectCard);
+            });
         }
 
         // Load projects when the page loads
