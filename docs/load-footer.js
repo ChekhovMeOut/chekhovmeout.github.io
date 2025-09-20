@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var xhr = new XMLHttpRequest();
     
     // Configure it to fetch the footer.html file
-    xhr.open('GET', '/footer.html', true);
-    
+    //xhr.open('GET', '/footer.html', true); // remote
+    xhr.open('GET', '/docs/footer.html', true); // local
+
     // Set up what to do when the request is complete
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
