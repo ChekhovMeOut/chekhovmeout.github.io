@@ -13,25 +13,23 @@
 <!-- Metadata Gathering-->
 <script>
     // Fetch and populate metadata from JSON
-    fetch('../professional.json')
+    fetch('../project.json')
         .then(response => response.json())
         .then(data => {
-            // Find the Blue Origin entry
-            const RelevantExpData = data.professional.find(entry => entry.company === getCurrentFolderName());
+            // Find the entry that matches this project name
+            const RelevantExpData = data.project.find(entry => entry.name === getCurrentFolderName());
 
             if (RelevantExpData) {// Update metadata values
                 // If any values are not used it will break the rest of them. That's why some are commented out.
-                document.querySelector('.company').textContent = RelevantExpData.company;
-                document.querySelector('.job-title').textContent = RelevantExpData.title;
+                document.querySelector('.name').textContent = RelevantExpData.name;
                 document.querySelector('.description').textContent = RelevantExpData.description;
-                //document.querySelector('.technologies').textContent = RelevantExpData.technologies;
-                document.querySelector('.company-link').href = RelevantExpData.companyLink;
-                document.querySelector('.start-date').textContent = RelevantExpData.startDate;
-                document.querySelector('.end-date').textContent = RelevantExpData.endDate;
-                document.querySelector('.location').textContent = RelevantExpData.location;
+                document.querySelector('.skills').textContent = RelevantExpData.skills;
+                //document.querySelector('.content').href = RelevantExpData.content;
+                document.querySelector('.rough-date').textContent = RelevantExpData.roughDate;
+                //document.querySelector('.location').textContent = RelevantExpData.location;
             }
         })
-        .catch(error => console.error('Error loading professional data:', error));
+        .catch(error => console.error('Error loading project data:', error));
         
 </script>
 
@@ -42,7 +40,7 @@
         
         <!-- Hero Section -->  
         <section class="experience-hero">
-            <img src="logo.png" class="experience-hero-logo">
+            <img src="hero.png" class="experience-hero-logo">
         </section>
         
         <!-- Gradient Line-->
@@ -53,26 +51,19 @@
             <!-- The gradient line that smooths the transition between the white header and background -->
             <div style="background: linear-gradient(rgb(51, 51, 51),  transparent ); min-height: 75px;"></div>
             <div class="container"> 
+            <h2 class="name"><!-- Will be populated by JavaScript --></h2>
                 <h2 class="job-title"><!-- Will be populated by JavaScript --></h2>
                 <div class="metadata-grid">
-                    <div class="metadata-item"> <!-- Start Date -->
-                        <span class="metadata-label">Start</span>
-                        <span class="metadata-value start-date"><!-- populated by JavaScript --></span>
+                    <div class="metadata-item"> <!-- Rough Date -->
+                        <span class="metadata-label">Date</span>
+                        <span class="metadata-value rough-date"><!-- populated by JavaScript --></span>
                     </div>
-                    <div class="metadata-item"> <!-- End Date -->
-                        <span class="metadata-label">End</span>
-                        <span class="metadata-value end-date"><!-- populated by JavaScript --></span>
+                    <div class="metadata-item"> <!-- Skills -->
+                        <span class="metadata-label">Skills</span>
+                        <span class="metadata-value skills"><!-- populated by JavaScript --></span>
                     </div>
-                    <div class="metadata-item"> <!-- Company-->
-                        <span class="metadata-label">Company</span>
-                        <span class="metadata-value company"><!-- populated by JavaScript --></span>
-                    </div>
-                    <div class="metadata-item"> <!-- Location-->
-                        <span class="metadata-label">Location</span>
-                        <span class="metadata-value location"><!-- populated by JavaScript --></span>
-                    </div>
-                    <div class="metadata-item"> <!-- Company Site-->
-                        <span class="metadata-label">Company Site</span>
+                    <div class="metadata-item"> <!-- Content -->
+                        <span class="metadata-label">Extra Content</span>
                         <a href="/assets/files/ian_wiatric_resume_N.pdf" target="_blank" class="btn metadata-value company-link">Visit Site</a>
                     </div> 
                 </div>
@@ -160,14 +151,14 @@
         // Navigation highlighting
         document.addEventListener('DOMContentLoaded', function () {
             setTimeout(function () {
-                const professionalLink = document.getElementById('nav-professional');
+                const professionalLink = document.getElementById('nav-projects');
                 if (professionalLink) {
                     professionalLink.classList.add('active');
                 }
             }, 100);
         });
 
-        // Ga-llery image data
+         // Ga-llery image data
         const galleryImages = [
             {
                 src: "msfc-site.jpg",
@@ -189,7 +180,7 @@
                 thumbnail: "engine-plant.jpg",
                 alt: "The Huntsville engine manufacturing plant where I worked as a Materials & Process Engineer"
             }
-        ];
+        ]; 
 
         // Populate gallery
         function initializeGallery() {

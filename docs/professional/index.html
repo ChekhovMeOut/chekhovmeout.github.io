@@ -106,5 +106,18 @@
         // Load projects when the page loads
         document.addEventListener('DOMContentLoaded', loadProjects);
     </script>
+
+<script>
+    // Enhanced navigation highlighting for home page
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add a small delay to ensure header is loaded
+        setTimeout(function() {
+            const homeLink = document.getElementById('nav-professional');
+            if (homeLink) {
+                homeLink.classList.add('active');
+            }
+        }, 100);
+    });
+</script>
 </body>
 </html>

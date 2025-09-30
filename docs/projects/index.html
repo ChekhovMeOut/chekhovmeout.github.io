@@ -41,7 +41,7 @@
                 const data = await response.json();
 
                 loadingDiv.style.display = 'none';
-                renderProjects(data.instances);
+                renderProjects(data.project);
 
             } catch (error) {
                 console.error('Error loading projects:', error);
@@ -73,8 +73,8 @@
             });
 
             card.innerHTML = `
-                <img src="${project.logo}"
-                     alt="${project.title}"
+                <img src="${project.hero}"
+                     alt="${project.name}"
                      class="project-image"
                      onerror="this.outerHTML='<div class=\\'placeholder-image\\'>Image not available</div>'">
 
@@ -83,8 +83,8 @@
                     <p class="project-description">${project.description}</p>
 
                     <div class="project-technologies">
-                        ${project.technologies.map(tech =>
-                            `<span class="tech-tag">${tech}</span>`
+                        ${project.skills.map(skill =>
+                            `<span class="tech-tag">${skill}</span>`
                         ).join('')}
                     </div>
                 </div>
@@ -106,5 +106,18 @@
         // Load projects when the page loads
         document.addEventListener('DOMContentLoaded', loadProjects);
     </script>
+
+<script>
+    // Enhanced navigation highlighting for home page
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add a small delay to ensure header is loaded
+        setTimeout(function() {
+            const homeLink = document.getElementById('nav-projects');
+            if (homeLink) {
+                homeLink.classList.add('active');
+            }
+        }, 100);
+    });
+</script>
 </body>
 </html>

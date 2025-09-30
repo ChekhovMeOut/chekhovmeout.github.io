@@ -46,4 +46,17 @@
 </div>
 
 <script src="load-footer.js"></script>
+
+<script>
+    // Enhanced navigation highlighting for home page
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add a small delay to ensure header is loaded
+        setTimeout(function() {
+            const homeLink = document.getElementById('nav-contact');
+            if (homeLink) {
+                homeLink.classList.add('active');
+            }
+        }, 100);
+    });
+</script>
 </html>

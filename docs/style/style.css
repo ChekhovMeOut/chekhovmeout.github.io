@@ -142,11 +142,6 @@ p {
   padding: 0 var(--space-md);
 }
 
-/* Main content sections */
-.section {
-  padding: var(--space-xl) 0;
-}
-
 /* ========================================
    HEADER & NAVIGATION
    ======================================== */
@@ -390,13 +385,13 @@ nav a:focus {
     flex-direction: column !important;
     gap: var(--space-lg);
     text-align: center;
-    padding: var(--space-md) 0;
+    padding: var(--space-sm) 0;
   }
 
   /* Text blocks */
   .text-block {
     width: var(--text-width-mobile);
-    max-width: 100%;
+    max-width: var(--text-width-mobile);
   }
 
   /* Images */
@@ -429,7 +424,7 @@ nav a:focus {
 /* Small mobile devices */
 @media (max-width: 480px) {
   .container {
-    padding: 0 var(--space-sm);
+    padding: 0 var(--space-xs);
   }
 
   nav {
