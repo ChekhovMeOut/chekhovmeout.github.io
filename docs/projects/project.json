@@ -6,9 +6,10 @@
       "hero":         "Molecular Simulations/hero.png",
       "skills":       ["Physics", "Simulations", "Biochemistry"], 
       "pageLink":     "Molecular Simulations/index.html",
-      "content":      "https://www.blueorigin.com/",
+      "content":      "https://cos.northeastern.edu/people/thiago-monteiro-araujo-dos-santos/",
       "roughDate":    "Oct 21, 2024",
-      "location":     "Huntsville, AL"
+      "visible":      true,
+      "order":        2
     },
     {
       "name":         "Engineering Education",
@@ -18,7 +19,8 @@
       "pageLink":     "Engineering Education/index.html",
       "content":      "https://generationbio.com/",
       "roughDate":    "Jan 1, 2023",
-      "location":     "Cambridge, MA"
+      "visible":      true,
+      "order":        3
     },
     {
       "name":         "Mycoprotein Production",
@@ -28,7 +30,8 @@
       "pageLink":     "Mycoprotein Production/index.html",
       "content":      "https://www.draper.com/",
       "roughDate":    "Jan 1, 2022",
-      "location":     "Cambridge, MA"
+      "visible":      true,
+      "order":        4
     },
     {
       "name":         "Rubiks Robot",
@@ -38,7 +41,8 @@
       "pageLink":     "Rubiks Robot/index.html",
       "content":      "https://cuberg.net/",
       "roughDate":    "Jan 1, 2021",
-      "location":     "Emeryville, CA"
+      "visible":      true,
+      "order":        5
     },
     {
       "name":         "Digital Modeling",
@@ -48,7 +52,19 @@
       "pageLink":     "Digital Modeling/index.html",
       "content":      "https://cuberg.net/",
       "roughDate":    "Jan 1, 2021",
-      "location":     "Emeryville, CA"
+      "visible":      true,
+      "order":        6
+    },
+    {
+      "name":         "test-project",
+      "description":  "A place for me to experiment",
+      "hero":         "test-project/hero.png",
+      "skills":       ["invisible", "development", "ficitonal"],
+      "pageLink":     "test-project/index.html",
+      "content":      "https://google.com/",
+      "roughDate":    "Jan 1, 2001",
+      "visible":      false,
+      "order":        1
     }
   ]
 }

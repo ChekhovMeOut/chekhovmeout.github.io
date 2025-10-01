@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials & Process Engineer - Blue Origin</title>
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/profes-style.css">
+</head>
+
+
+<!-- Metadata Gathering-->
+<script>
+    // Fetch and populate metadata from JSON
+    fetch('../project.json')
+        .then(response => response.json())
+        .then(data => {
+            // Find the entry that matches this project name
+            const RelevantExpData = data.project.find(entry => entry.name === getCurrentFolderName());
+
+            if (RelevantExpData) {// Update metadata values
+                // If any values are not used it will break the rest of them. That's why some are commented out.
+                document.querySelector('.name').textContent = RelevantExpData.name;
+                document.querySelector('.description').textContent = RelevantExpData.description;
+                document.querySelector('.skills').textContent = RelevantExpData.skills;
+                //document.querySelector('.content').href = RelevantExpData.content;
+                document.querySelector('.rough-date').textContent = RelevantExpData.roughDate;
+                //document.querySelector('.location').textContent = RelevantExpData.location;
+            }
+        })
+        .catch(error => console.error('Error loading project data:', error));
+        
+</script>
+
+<body>    
+    <main>
+        <!-- Header -->
+        <script src="../../load-header.js"></script>
+        
+        <!-- Hero Section -->  
+        <section class="experience-hero">
+            <img src="hero.png" class="experience-hero-logo">
+        </section>
+        
+        <!-- Gradient Line-->
+        <div style="background: linear-gradient(rgb(255, 255, 255), transparent); min-height: max(50px, 75px);"></div>
+
+        <!-- Content -->
+        <section style="background: url(../../assets/hr-pipedesign.png); background-size: contain; padding-top: 0; ">
+            <!-- The gradient line that smooths the transition between the white header and background -->
+            <div style="background: linear-gradient(rgb(51, 51, 51),  transparent ); min-height: 75px;"></div>
+            <div class="container"> 
+            <h2 class="name"><!-- Will be populated by JavaScript --></h2>
+                <h2 class="job-title"><!-- Will be populated by JavaScript --></h2>
+                <div class="metadata-grid">
+                    <div class="metadata-item"> <!-- Rough Date -->
+                        <span class="metadata-label">Date</span>
+                        <span class="metadata-value rough-date"><!-- populated by JavaScript --></span>
+                    </div>
+                    <div class="metadata-item"> <!-- Skills -->
+                        <span class="metadata-label">Skills</span>
+                        <span class="metadata-value skills"><!-- populated by JavaScript --></span>
+                    </div>
+                    <div class="metadata-item"> <!-- Content -->
+                        <span class="metadata-label">Extra Content</span>
+                        <a href="/assets/files/ian_wiatric_resume_N.pdf" target="_blank" class="btn metadata-value company-link">Visit Site</a>
+                    </div> 
+                </div>
+                <div class="metadata-item" style="margin-bottom: var(--space-lg);"> <!-- Summary-->
+                    <span class="metadata-label">Summary</span>
+                    <span class="metadata-value description"><!-- Will be populated by JavaScript --></span>
+                </div>
+                <h3>What is Lorem Ipsum?</h3> <!-- credit: https://www.lipsum.com/ -->
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                    recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                </p>
+
+                <h3>Where does it come from?</h3>
+                <p>
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature
+                    from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
+                    looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of
+                    the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
+                    of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise
+                    on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+                    amet..", comes from a line in section 1.10.32.
+                </p>
+
+                <p>
+                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and
+                    1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by
+                    English versions from the 1914 translation by H. Rackham.
+                </p>
+
+                <h3>Why do we use it?</h3>
+                <p>
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
+                    layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
+                    'Content here, content here', making it look like readable English. Many desktop publishing packages and web page
+                    editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites
+                    still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose
+                    (injected humour and the like).
+                </p>
+
+                <h3>Where can i find some?</h3>
+                <p>
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                    by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of
+                    Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+                    generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the
+                    Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to
+                    generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition,
+                    injected humour, or non-characteristic words etc.
+                </p>
+
+            </div>
+
+        <!-- Image Gallery -->
+            <div class="container">
+                <h2>Project Gallery</h2>
+                <div>
+                    <div class="gallery-main">
+                        <img id="main-image" src="launch.jpg" alt="Blue Origin rocket launch">
+                    </div>
+                    <div class="gallery-thumbnails" id="thumbnails-container">
+                        <!-- Thumbnails will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div style="background: linear-gradient(transparent,rgb(51, 51, 51)); min-height: 75px;"></div>
+
+        </section>
+
+    <!-- Footer -->
+    <script src="../../load-footer.js"></script>
+
+    <script>
+        // Navigation highlighting
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                const professionalLink = document.getElementById('nav-projects');
+                if (professionalLink) {
+                    professionalLink.classList.add('active');
+                }
+            }, 100);
+        });
+
+         // Ga-llery image data
+        const galleryImages = [
+            {
+                src: "apple.jpg",
+                thumbnail: "apple.jpg",
+                alt: "Now these would make a nice pie"
+            },
+            {
+                src: "carambola.png",
+                thumbnail: "carambola.png",
+                alt: "A childhood favorite, though it doesn't play well with others"
+            },
+            {
+                src: "rambutan.png",
+                thumbnail: "rambutan.png",
+                alt: "They go by many names but they are all delicious"
+            },
+
+        ]; 
+
+        // Populate gallery
+        function initializeGallery() {
+            const container = document.getElementById('thumbnails-container');
+            
+            galleryImages.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.onclick = () => changeImage(thumbnail, image.src, image.alt);
+                
+                const img = document.createElement('img');
+                img.src = image.thumbnail;
+                img.alt = `${image.alt} thumbnail`;
+                
+                thumbnail.appendChild(img);
+                container.appendChild(thumbnail);
+            });
+
+            // Set initial main image
+            if (galleryImages.length > 0) {
+                const mainImage = document.getElementById('main-image');
+                mainImage.src = galleryImages[0].src;
+                mainImage.alt = galleryImages[0].alt;
+            }
+        }
+
+        // Modified changeImage function
+        function changeImage(thumbnail, src, alt) {
+            const mainImage = document.getElementById('main-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnail.classList.add('active');
+
+            mainImage.src = src;
+            mainImage.alt = alt;
+        }
+
+        // Initialize gallery when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeGallery);
+
+        // Keep existing keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            const thumbnails = Array.from(document.querySelectorAll('.thumbnail'));
+            const activeThumbnail = document.querySelector('.thumbnail.active');
+            const currentIndex = thumbnails.indexOf(activeThumbnail);
+
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                thumbnails[currentIndex - 1].click();
+            } else if (e.key === 'ArrowRight' && currentIndex < thumbnails.length - 1) {
+                thumbnails[currentIndex + 1].click();
+            }
+        });
+ 
+        // Get current page's folder name
+        function getCurrentFolderName() {
+        const url = new URL(window.location.href);
+        const pathSegments = url.pathname.split('/').filter(segment => segment);
+        const folderName = pathSegments[pathSegments.length - 2] || 'root';
+        return decodeURIComponent(folderName);
+        }
+    </script>
+</body>
+
+</html>
