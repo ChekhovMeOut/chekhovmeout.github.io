@@ -96,10 +96,20 @@
         // Render projects to the DOM
         function renderProjects(projects) {
             const container = document.getElementById('projects-container');
+                        
+            // Sort projects by order field (lowest first)
+            const sortedProjects = projects.sort((a, b) => {
+                const orderA = a.order !== undefined ? a.order : 999;
+                const orderB = b.order !== undefined ? b.order : 999;
+                return orderA - orderB; // Flip to change sort order
+            });
 
-            projects.forEach(project => {
+            // Render only visible projects
+            sortedProjects.forEach(project => {
+                if (project.visible === true) { 
                 const projectCard = createProjectCard(project);
                 container.appendChild(projectCard);
+                }
             });
         }
 

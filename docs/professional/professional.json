@@ -10,7 +10,9 @@
       "companyLink":  "https://www.blueorigin.com/",
       "startDate":    "Oct 21, 2024",
       "endDate":      "Present",
-      "location":     "Huntsville, AL"
+      "location":     "Huntsville, AL",
+      "visible":      true,
+      "order":        1
     },
     {
       "company":      "GenerationBio",
@@ -22,7 +24,9 @@
       "companyLink":  "https://generationbio.com/",
       "startDate":    "Jan 1, 2023",
       "endDate":      "Aug 31, 2023",
-      "location":     "Cambridge, MA"
+      "location":     "Cambridge, MA",
+      "visible":      true,
+      "order":        2
     },
     {
       "company":      "Draper",
@@ -34,7 +38,9 @@
       "companyLink":  "https://www.draper.com/",
       "startDate":    "Jan 1, 2022",
       "endDate":      "Aug 31, 2022",
-      "location":     "Cambridge, MA"
+      "location":     "Cambridge, MA",
+      "visible":      true,
+      "order":        3
     },
     {
       "company":      "Cuberg",
@@ -46,7 +52,9 @@
       "companyLink":  "https://cuberg.net/",
       "startDate":    "Jan 1, 2021",
       "endDate":      "Jun 30, 2021",
-      "location":     "Emeryville, CA"
+      "location":     "Emeryville, CA",
+      "visible":      true,
+      "order":        4
     }
   ]
 }
