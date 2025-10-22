@@ -2,9 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create a new XMLHttpRequest object
     var xhr = new XMLHttpRequest();
     
-    // Configure it to fetch the footer.html file
-    xhr.open('GET', '/footer.html', true); // remote
-    //xhr.open('GET', '/docs/footer.html', true); // local
+    // Fetch the footer.html file, based on host type
+    if (window.location.hostname ==='ianwiatric.com') {
+        xhr.open('GET', '/footer.html', true); // remote
+    } else {
+        xhr.open('GET', '/docs/footer.html', true); // local
+    }
 
     // Set up what to do when the request is complete
     xhr.onload = function() {
