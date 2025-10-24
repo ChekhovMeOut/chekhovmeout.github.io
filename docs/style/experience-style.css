@@ -2,20 +2,18 @@
 /* ========================================
 Header, Hero & Metadata
 ======================================== */
-.experience-hero {
+.experience-hero-section {
     display: flex;
-    max-height: --hero-max-height;
+    height: clamp(var(--hero-min-height), var(--hero-target-height), var(--hero-max-height));
     width: 100vw;
     background: white;
     justify-content: center;
     align-content: center;
 }
 
-.experience-hero-logo {
-    max-width: --container-max-width;
-    max-height: --hero-max-height;
-    height: auto;
-    width: auto;
+.experience-hero-image {
+    object-fit: contain;
+    width: 100%;
 }
 
 .experience-overlay {
