@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials & Process Engineer - Blue Origin</title>
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/experience-style.css">
+</head>
+
+
+<!-- Metadata Gathering-->
+<script>
+    // Fetch and populate metadata from JSON
+    fetch('../project.json')
+        .then(response => response.json())
+        .then(data => {
+            // Find the entry that matches this project name
+            const RelevantExpData = data.project.find(entry => entry.name === getCurrentFolderName());
+
+            if (RelevantExpData) {// Update metadata values
+                // If any values are not used it will break the rest of them. That's why some are commented out.
+                document.querySelector('.name').textContent = RelevantExpData.name;
+                document.querySelector('.description').textContent = RelevantExpData.description;
+                document.querySelector('.skills').textContent = RelevantExpData.skills;
+                //document.querySelector('.content').href = RelevantExpData.content;
+                document.querySelector('.rough-date').textContent = RelevantExpData.roughDate;
+                //document.querySelector('.location').textContent = RelevantExpData.location;
+            }
+        })
+        .catch(error => console.error('Error loading project data:', error));
+        
+</script>
+
+<body>    
+    <main>
+        <!-- Header -->
+        <script src="../../load-header.js"></script>
+        
+        <!-- Hero Section -->  
+        <section class="experience-hero-section">
+            <img src="hero.png" class="experience-hero-image" >
+        </section>
+        
+        <!-- Gradient Line-->
+        <div style="background: linear-gradient(rgb(255, 255, 255), transparent); min-height: max(50px, 75px);"></div>
+
+        <!-- Content -->
+        <section style="background: url(../../assets/hr-pipedesign.png); background-size: contain; padding-top: 0; ">
+            <!-- The gradient line that smooths the transition between the white header and background -->
+            <div style="background: linear-gradient(rgb(51, 51, 51),  transparent ); min-height: 75px;"></div>
+            <div class="container"> 
+            <h2 class="name"><!-- Will be populated by JavaScript --></h2>
+                <h2 class="job-title"><!-- Will be populated by JavaScript --></h2>
+                <div class="metadata-grid">
+                    <div class="metadata-item"> <!-- Rough Date -->
+                        <span class="metadata-label">Date</span>
+                        <span class="metadata-value rough-date"><!-- populated by JavaScript --></span>
+                    </div>
+                    <div class="metadata-item"> <!-- Skills -->
+                        <span class="metadata-label">Skills</span>
+                        <span class="metadata-value skills"><!-- populated by JavaScript --></span>
+                    </div>
+                    <div class="metadata-item"> <!-- Content -->
+                        <span class="metadata-label">Extra Content</span>
+                        <a href="/assets/files/ian_wiatric_resume_N.pdf" target="_blank" class="btn metadata-value company-link">Visit Site</a>
+                    </div> 
+                </div>
+                <div class="metadata-item" style="margin-bottom: var(--space-lg);"> <!-- Summary-->
+                    <span class="metadata-label">Summary</span>
+                    <span class="metadata-value description"><!-- Will be populated by JavaScript --></span>
+                </div>
+                <h3>Background</h3>
+                <p>
+                    In 2023, I joined the <a href="https://coe.northeastern.edu/people/landherr-luke/" class="inline-link">Science The World</a>. research group run by Professor Landherr. We seek to address institutional
+                    disparities in higher education, which are especially prevalent in disciplines like chemical engineering, by developing
+                    novel and accessible educational materials. This includes low-cost experimental demonstrations, interactive virtual
+                    simulations, and informative comics.
+                </p>
+
+                <h3>Objective</h3>
+                <p>
+                    Professor Landherr recently won a <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2235827&HistoricalAwards=false" class="inline-link">$300,000 NSF grant</a> 
+                    to create open-access educational materials and study their implementation at universities across the U.S. The grant is specifically awarded to produce 
+                    <a href="https://news.northeastern.edu/2023/10/12/comics-stem-learning-tool/" class="inline-link">art-drive STEM comics</a>
+                    on 16 subjects in chemical engineering. The full list (see below) features complex topics including thermodynamics,
+                    phase analysis, and material balances.
+                </p>
+                
+                <h3>My Role</h3>
+                <p>
+                    I wrote the script for the atom balance comic. I found it to be a challenging yet rewarding topic; it needs strong
+                    conceptual explanations to differentiate it from other topics (I.e., mass and mol) and mathematical worked examples.
+                    Combining these requirements into a limited space with an uncontrived and engaging story line was difficult.
+                    Synthesizing complex topics in the role of a teacher, rather than a student, was also a novel and stimulating
+                    experience.
+                </p>
+                <p>
+                My script is now in the final stages of editing. It will soon be turned over to the artist to be visually rendered. 
+                    I will post the final product here when it is available. 
+                </p>
+                
+                <h3>Gallery</h3>
+                <p>
+                    Previous examples which inspired this project can be seen below. Although the art itself has been made by a variety
+                    of artists, there is a prevailing commitment to DEI by including non-traditional characters. Click to view the full
+                    image.
+                </p>
+
+            </div>
+
+        <!-- Image Gallery -->
+            <div class="container">
+                <h2>Project Gallery</h2>
+                <div>
+                    <div class="gallery-main">
+                        <img id="main-image" src="hero.png" alt="default initializing image">
+                    </div>
+                    <div class="gallery-thumbnails" id="thumbnails-container">
+                        <!-- Thumbnails will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div style="background: linear-gradient(transparent,rgb(51, 51, 51)); min-height: 75px;"></div>
+
+        </section>
+
+    <!-- Footer -->
+    <script src="../../load-footer.js"></script>
+
+    <script>
+        // Navigation highlighting
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                const professionalLink = document.getElementById('nav-projects');
+                if (professionalLink) {
+                    professionalLink.classList.add('active');
+                }
+            }, 100);
+        });
+
+         // Gallery image data
+        const galleryImages = [
+            {
+                src: "wide.png",
+                thumbnail: "wide.png",
+                alt: ""
+            },
+            {
+                src: "data.png",
+                thumbnail: "data.png",
+                alt: ""
+            },
+            {
+                src: "pid.png",
+                thumbnail: "pid.png",
+                alt: ""
+            },
+
+        ]; 
+
+        // Populate gallery
+        function initializeGallery() {
+            const container = document.getElementById('thumbnails-container');
+            
+            galleryImages.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.onclick = () => changeImage(thumbnail, image.src, image.alt);
+                
+                const img = document.createElement('img');
+                img.src = image.thumbnail;
+                img.alt = `${image.alt} thumbnail`;
+                
+                thumbnail.appendChild(img);
+                container.appendChild(thumbnail);
+            });
+
+            // Set initial main image
+            if (galleryImages.length > 0) {
+                const mainImage = document.getElementById('main-image');
+                mainImage.src = galleryImages[0].src;
+                mainImage.alt = galleryImages[0].alt;
+            }
+        }
+
+        // Modified changeImage function
+        function changeImage(thumbnail, src, alt) {
+            const mainImage = document.getElementById('main-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnail.classList.add('active');
+
+            mainImage.src = src;
+            mainImage.alt = alt;
+        }
+
+        // Initialize gallery when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeGallery);
+
+        // Keep existing keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            const thumbnails = Array.from(document.querySelectorAll('.thumbnail'));
+            const activeThumbnail = document.querySelector('.thumbnail.active');
+            const currentIndex = thumbnails.indexOf(activeThumbnail);
+
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                thumbnails[currentIndex - 1].click();
+            } else if (e.key === 'ArrowRight' && currentIndex < thumbnails.length - 1) {
+                thumbnails[currentIndex + 1].click();
+            }
+        });
+ 
+        // Get current page's folder name
+        function getCurrentFolderName() {
+        const url = new URL(window.location.href);
+        const pathSegments = url.pathname.split('/').filter(segment => segment);
+        const folderName = pathSegments[pathSegments.length - 2] || 'root';
+        return decodeURIComponent(folderName);
+        }
+    </script>
+</body>
+
+</html>

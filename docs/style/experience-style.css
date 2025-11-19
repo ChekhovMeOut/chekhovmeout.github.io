@@ -12,7 +12,8 @@ Header, Hero & Metadata
 }
 
 .experience-hero-image {
-    object-fit: contain;
+    object-fit: cover;
+    object-position: top;
     width: 100%;
 }
 

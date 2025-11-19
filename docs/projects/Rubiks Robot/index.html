@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials & Process Engineer - Blue Origin</title>
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/experience-style.css">
+</head>
+
+
+<!-- Metadata Gathering-->
+<script>
+    // Fetch and populate metadata from JSON
+    fetch('../project.json')
+        .then(response => response.json())
+        .then(data => {
+            // Find the entry that matches this project name
+            const RelevantExpData = data.project.find(entry => entry.name === getCurrentFolderName());
+
+            if (RelevantExpData) {// Update metadata values
+                // If any values are not used it will break the rest of them. That's why some are commented out.
+                document.querySelector('.name').textContent = RelevantExpData.name;
+                document.querySelector('.description').textContent = RelevantExpData.description;
+                document.querySelector('.skills').textContent = RelevantExpData.skills;
+                //document.querySelector('.content').href = RelevantExpData.content;
+                document.querySelector('.rough-date').textContent = RelevantExpData.roughDate;
+                //document.querySelector('.location').textContent = RelevantExpData.location;
+            }
+        })
+        .catch(error => console.error('Error loading project data:', error));
+        
+</script>
+
+<body>    
+    <main>
+        <!-- Header -->
+        <script src="../../load-header.js"></script>
+        
+        <!-- Hero Section -->  
+        <section class="experience-hero-section">
+            <img src="hero.png" class="experience-hero-image" >
+        </section>
+        
+        <!-- Gradient Line-->
+        <div style="background: linear-gradient(rgb(255, 255, 255), transparent); min-height: max(50px, 75px);"></div>
+
+        <!-- Content -->
+        <section style="background: url(../../assets/hr-pipedesign.png); background-size: contain; padding-top: 0; ">
+            <!-- The gradient line that smooths the transition between the white header and background -->
+            <div style="background: linear-gradient(rgb(51, 51, 51),  transparent ); min-height: 75px;"></div>
+            <div class="container"> 
+            <h2 class="name"><!-- Will be populated by JavaScript --></h2>
+                <h2 class="job-title"><!-- Will be populated by JavaScript --></h2>
+                <div class="metadata-grid">
+                    <div class="metadata-item"> <!-- Rough Date -->
+                        <span class="metadata-label">Date</span>
+                        <span class="metadata-value rough-date"><!-- populated by JavaScript --></span>
+                    </div>
+                    <div class="metadata-item"> <!-- Skills -->
+                        <span class="metadata-label">Skills</span>
+                        <span class="metadata-value skills"><!-- populated by JavaScript --></span>
+                    </div>
+                    <div class="metadata-item"> <!-- Content -->
+                        <span class="metadata-label">Extra Content</span>
+                        <a href="/assets/files/ian_wiatric_resume_N.pdf" target="_blank" class="btn metadata-value company-link">Visit Site</a>
+                    </div> 
+                </div>
+                <div class="metadata-item" style="margin-bottom: var(--space-lg);"> <!-- Summary-->
+                    <span class="metadata-label">Summary</span>
+                    <span class="metadata-value description"><!-- Will be populated by JavaScript --></span>
+                </div>
+                <h3>Background</h3>
+                <p>
+                    I am one of the many fans around the world who became fascinated with the classic twisting puzzle. The high branching
+                    factor that arises from just a simple set of rules still astonishes.
+                </p>
+                <p>
+                    After solving the puzzle by hand many times, I decided to start building an automated system. This is not a new
+                    idea, but it requires integration between software, hardware, theory, and materials. It has been fairly challenging
+                    to navigate such an open-ended design space with limited resources. But I find the entertaining and educational
+                    result to be worth it!
+                </p>
+                
+                <h3>Structural</h3>
+                <p>
+                    I used Onshape to design several iterations of a custom interface component which docks with the cube, then 3D
+                    printed it. The frame is a simple cube structure with one cross brace on each face to mount the motors. I struggled
+                    with balancing tolerance requirements and cost constraints. The solution ultimately required assembling the cube
+                    around the robot after it had been built.
+                </p>
+                
+                <h3>Electrical Hardware</h3>
+                <p>
+                    After experimenting with servo motors and multiplexing, I decided having a dedicated stepper motor and circuit for
+                    each face was necessary to achieve the desired speeds. Each of the six NEMA-17 motors is driven by a DRV8824 circuit
+                    built on a breadboard. A biphasic wiring system with full step length (1.8°) was used. Experimental testing
+                    confirmed 600 microseconds was the minimum step delay to consistently avoid skipping, giving a theoretical rotation
+                    time of 0.12 seconds. Currently, the mechanical and electrical systems are functioning well. However, motor position
+                    drifts over the course of many cycles. In future iterations, this problem could be fixed with an optical encoder.
+                </p>
+                
+                <h3>Software</h3>
+                <p>
+                    All of the data structure and and logic is written in Python with code borrowed from several Git repositories. The
+                    Python instance is hosted on a Raspberry Pi, which exports commands through GPIO connections to the breadboard. My
+                    own version of an A* search algorithm is in progress. The final product will demonstrate the reductions in solving
+                    time resulting from improvements like algorithm heuristics, search databases, and reaction time.
+                </p>
+                
+                <h3>Wrapping up</h3>
+                <p>
+                    I have learned a great deal about system integration (and the patience it requires). I enjoyed approaching a silly hobby with a technical bend, and was able to develop new skills in programming and electrical hardware.
+                </p>
+            </div>
+
+        <!-- Image Gallery -->
+            <div class="container">
+                <h2>Project Gallery</h2>
+                <div>
+                    <div class="gallery-main">
+                        <img id="main-image" src="hero.png" alt="default initializing image">
+                    </div>
+                    <div class="gallery-thumbnails" id="thumbnails-container">
+                        <!-- Thumbnails will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div style="background: linear-gradient(transparent,rgb(51, 51, 51)); min-height: 75px;"></div>
+
+        </section>
+
+    <!-- Footer -->
+    <script src="../../load-footer.js"></script>
+
+    <script>
+        // Navigation highlighting
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                const professionalLink = document.getElementById('nav-projects');
+                if (professionalLink) {
+                    professionalLink.classList.add('active');
+                }
+            }, 100);
+        });
+
+         // Gallery image data
+        const galleryImages = [
+            {
+
+                src: "assembly.png",
+                thumbnail: "assembly.png",
+                alt: "The CAD model designed to size hardware joinery"
+            },
+            {
+                src: "interface.png",
+                thumbnail: "interface.png",
+                alt: "Printed parts to interface with the physical cube"
+            }
+        ]; 
+
+        // Populate gallery
+        function initializeGallery() {
+            const container = document.getElementById('thumbnails-container');
+            
+            galleryImages.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.onclick = () => changeImage(thumbnail, image.src, image.alt);
+                
+                const img = document.createElement('img');
+                img.src = image.thumbnail;
+                img.alt = `${image.alt} thumbnail`;
+                
+                thumbnail.appendChild(img);
+                container.appendChild(thumbnail);
+            });
+
+            // Set initial main image
+            if (galleryImages.length > 0) {
+                const mainImage = document.getElementById('main-image');
+                mainImage.src = galleryImages[0].src;
+                mainImage.alt = galleryImages[0].alt;
+            }
+        }
+
+        // Modified changeImage function
+        function changeImage(thumbnail, src, alt) {
+            const mainImage = document.getElementById('main-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnail.classList.add('active');
+
+            mainImage.src = src;
+            mainImage.alt = alt;
+        }
+
+        // Initialize gallery when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeGallery);
+
+        // Keep existing keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            const thumbnails = Array.from(document.querySelectorAll('.thumbnail'));
+            const activeThumbnail = document.querySelector('.thumbnail.active');
+            const currentIndex = thumbnails.indexOf(activeThumbnail);
+
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                thumbnails[currentIndex - 1].click();
+            } else if (e.key === 'ArrowRight' && currentIndex < thumbnails.length - 1) {
+                thumbnails[currentIndex + 1].click();
+            }
+        });
+ 
+        // Get current page's folder name
+        function getCurrentFolderName() {
+        const url = new URL(window.location.href);
+        const pathSegments = url.pathname.split('/').filter(segment => segment);
+        const folderName = pathSegments[pathSegments.length - 2] || 'root';
+        return decodeURIComponent(folderName);
+        }
+    </script>
+</body>
+
+</html>

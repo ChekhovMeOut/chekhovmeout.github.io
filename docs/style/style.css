@@ -136,18 +136,6 @@ p {
 }
 
 /* ========================================
-   LAYOUT COMPONENTS
-   ======================================== */
-
-/* Container for centering content */
-.container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  width: 60vw;
-  padding: 0 var(--space-md);
-}
-
-/* ========================================
    HEADER & NAVIGATION
    ======================================== */
 header {
@@ -209,6 +197,14 @@ nav a.active::after {
 /* ========================================
    CONTENT LAYOUTS
    ======================================== */
+
+/* Container for centering content */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  width: 60vw;
+  padding: 0 var(--space-md);
+}
 
 /* Image-Text Pair Layout */
 .image-text-pair {
@@ -294,6 +290,11 @@ nav a.active::after {
   gap: var(--space-xs);
   padding: var(--space-xs) var(--space-xs);
   width: 50%;
+}
+
+.inline-link {
+  text-decoration: underline; 
+  color: var(--color-accent);
 }
 
 /* ========================================
