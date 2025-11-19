@@ -1,3 +1,7 @@
+/* ====================================
+   Card Style: for both the project and professional indexes
+   ================================ */
+
 
 body {
     max-width: 700px;
@@ -28,7 +32,7 @@ body {
     .project-image {
         width: 100%;
         height: auto; 
-        /* height: 200px */
+        height: 230px;
         object-fit: cover;
         display: block;
     }

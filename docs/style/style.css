@@ -31,7 +31,6 @@
   /* Layout */
   --container-max-width: 1200px;
   --content-max-width: 800px;
-  --hero-max-height: 400px;
   --border-radius: 8px;
   --transition-base: 0.3s ease;
 
@@ -40,6 +39,12 @@
   --image-width-desktop: 30vw;
   --text-width-mobile: 90vw;
   --text-width-desktop: 30vw;
+
+  --hero-min-height: 250px;
+  --hero-target-height: 30vw; 
+  --hero-max-height: 350px;
+  
+
 }
 
 /* ========================================
@@ -131,18 +136,6 @@ p {
 }
 
 /* ========================================
-   LAYOUT COMPONENTS
-   ======================================== */
-
-/* Container for centering content */
-.container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  width: 60vw;
-  padding: 0 var(--space-md);
-}
-
-/* ========================================
    HEADER & NAVIGATION
    ======================================== */
 header {
@@ -204,6 +197,14 @@ nav a.active::after {
 /* ========================================
    CONTENT LAYOUTS
    ======================================== */
+
+/* Container for centering content */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  width: 60vw;
+  padding: 0 var(--space-md);
+}
 
 /* Image-Text Pair Layout */
 .image-text-pair {
@@ -289,6 +290,11 @@ nav a.active::after {
   gap: var(--space-xs);
   padding: var(--space-xs) var(--space-xs);
   width: 50%;
+}
+
+.inline-link {
+  text-decoration: underline; 
+  color: var(--color-accent);
 }
 
 /* ========================================
