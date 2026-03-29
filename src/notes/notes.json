@@ -1,0 +1,7 @@
+{
+  "layout": "base.njk",
+  "tags": "notes",
+  "eleventyComputed": {
+    "title": "{% if title %}{{ title }}{% else %}{{ page.fileSlug | slugToTitle }}{% endif %}"
+  }
+}

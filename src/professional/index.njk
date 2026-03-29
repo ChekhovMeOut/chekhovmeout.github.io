@@ -1,0 +1,30 @@
+---
+title: Professional
+layout: base.njk
+eleventyExcludeFromCollections: true
+noContainer: false
+---
+
+<div class="text-block-center">
+  <h2>Professional Experience</h2>
+  <h4>Engineering experience at scales ranging from startups to large manufacturers. Positions are ordered by recency.</h4>
+</div>
+
+<div class="projects-container">
+{%- for job in collections.professional | sort(false, false, "data.order") -%}
+  <a href="{{ job.url }}" class="project-card">
+    {% if job.data.logo %}
+    <img src="{{ job.data.logo }}" alt="{{ job.data.title }} logo" class="project-image">
+    {% endif %}
+    <div class="project-content">
+      <h3 class="project-title">{{ job.data.title }}</h3>
+      <p class="project-description">{{ job.data.description }}</p>
+      <div class="project-technologies">
+        {%- for tech in job.data.technologies -%}
+          <span class="tech-tag">{{ tech }}</span>
+        {%- endfor -%}
+      </div>
+    </div>
+  </a>
+{%- endfor -%}
+</div>

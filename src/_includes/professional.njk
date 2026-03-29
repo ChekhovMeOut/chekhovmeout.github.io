@@ -1,0 +1,45 @@
+---
+layout: base.njk
+---
+
+{% if logo %}
+<div class="article-hero">
+  <img src="{{ logo }}" alt="{{ title }} logo" class="article-hero-img">
+</div>
+{% endif %}
+
+<div class="container">
+  <h2 class="job-title">{{ role }}</h2>
+
+  <div class="metadata-grid">
+    <div class="metadata-item">
+      <span class="metadata-label">Start</span>
+      <span class="metadata-value">{{ startDate }}</span>
+    </div>
+    <div class="metadata-item">
+      <span class="metadata-label">End</span>
+      <span class="metadata-value">{{ endDate }}</span>
+    </div>
+    <div class="metadata-item">
+      <span class="metadata-label">Company</span>
+      <span class="metadata-value">{{ title }}</span>
+    </div>
+    <div class="metadata-item">
+      <span class="metadata-label">Location</span>
+      <span class="metadata-value">{{ location }}</span>
+    </div>
+    {% if companyUrl %}
+    <div class="metadata-item">
+      <span class="metadata-label">Company Site</span>
+      <a href="{{ companyUrl }}" target="_blank" class="metadata-value">Visit Site</a>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="metadata-item" style="margin-bottom: var(--space-lg);">
+    <span class="metadata-label">Summary</span>
+    <span class="metadata-value">{{ description }}</span>
+  </div>
+
+  {{ content | safe }}
+</div>

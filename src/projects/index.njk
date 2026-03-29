@@ -1,0 +1,30 @@
+---
+title: Projects
+layout: base.njk
+eleventyExcludeFromCollections: true
+noContainer: false
+---
+
+<div class="text-block-center">
+  <h2>Personal Projects</h2>
+  <h4>Finished and ongoing projects for academic interest, pleasure, or both. Projects are roughly ordered by recency.</h4>
+</div>
+
+<div class="projects-container">
+{%- for project in collections.project | sort(false, false, "data.order") -%}
+  <a href="{{ project.url }}" class="project-card">
+    {% if project.data.hero %}
+    <img src="{{ project.data.hero }}" alt="{{ project.data.title }}" class="project-image">
+    {% endif %}
+    <div class="project-content">
+      <h3 class="project-title">{{ project.data.title }}</h3>
+      <p class="project-description">{{ project.data.description }}</p>
+      <div class="project-technologies">
+        {%- for skill in project.data.skills -%}
+          <span class="tech-tag">{{ skill }}</span>
+        {%- endfor -%}
+      </div>
+    </div>
+  </a>
+{%- endfor -%}
+</div>

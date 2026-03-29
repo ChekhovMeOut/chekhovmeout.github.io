@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | Ian Wiatric</title>
+
+  {# CSS Setup #}
+  {# pico is base layer loaded first, general custom is second, and any page-specific custom "name.css" is put on top last. Make sure to put it in frontmatter "pageCSS: home.css" #}
+  <link rel="stylesheet" href="/css/pico.min.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  {% if pageCSS %}
+    <link rel="stylesheet" href="/css/{{ pageCSS }}">
+  {% endif %}
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/mhchem.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", inline: true}
+        ]
+      });
+    });
+  </script>
+
+</head>
+<body>
+  <header>
+    <h1><a href="/" class="home-link">Ian H. Wiatric</a></h1>
+    <hr class="center-hr">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav">
+      <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
+      <a href="/about/" {% if "/about" in page.url %}class="active"{% endif %}>About</a>
+      <a href="/professional/" {% if "/professional" in page.url %}class="active"{% endif %}>Professional</a>
+      <a href="/projects/" {% if "/projects" in page.url %}class="active"{% endif %}>Projects</a>
+      {# <a href="/notes/" {% if "/notes" in page.url %}class="active"{% endif %}>Notes</a> #}
+      <a href="/contact/" {% if "/contact" in page.url %}class="active"{% endif %}>Contact</a>
+    </nav>
+  </header>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('main-nav');
+    toggle.addEventListener('click', function() {
+      const open = nav.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
+
+  <main {% if not noContainer %}class="container"{% endif %}>
+  {{ content | safe }}
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© Ian Wiatric. All rights reserved.<br>
+        Not optimized for ultra wide viewing.<br>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
