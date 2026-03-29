@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials & Process Engineer - Blue Origin</title>
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/experience-style.css">
+</head>
+
+
+<!-- Metadata Gathering-->
+<script>
+    // Fetch and populate metadata from JSON
+    fetch('../project.json')
+        .then(response => response.json())
+        .then(data => {
+            // Find the entry that matches this project name
+            const RelevantExpData = data.project.find(entry => entry.name === getCurrentFolderName());
+
+            if (RelevantExpData) {// Update metadata values
+                // If any values are not used it will break the rest of them. That's why some are commented out.
+                document.querySelector('.name').textContent = RelevantExpData.name;
+                document.querySelector('.description').textContent = RelevantExpData.description;
+                document.querySelector('.skills').textContent = RelevantExpData.skills;
+                //document.querySelector('.content').href = RelevantExpData.content;
+                document.querySelector('.rough-date').textContent = RelevantExpData.roughDate;
+                //document.querySelector('.location').textContent = RelevantExpData.location;
+            }
+        })
+        .catch(error => console.error('Error loading project data:', error));
+        
+</script>
+
+<body>    
+    <main>
+        <!-- Header -->
+        <script src="../../load-header.js"></script>
+        
+        <!-- Hero Section -->  
+        <section class="experience-hero-section">
+            <img src="hero.png" class="experience-hero-image" >
+        </section>
+        
+        <!-- Gradient Line-->
+        <div style="background: linear-gradient(rgb(255, 255, 255), transparent); min-height: max(50px, 75px);"></div>
+
+        <!-- Content -->
+        <section style="background: url(../../assets/hr-pipedesign.png); background-size: contain; padding-top: 0; ">
+            <!-- The gradient line that smooths the transition between the white header and background -->
+            <div style="background: linear-gradient(rgb(51, 51, 51),  transparent ); min-height: 75px;"></div>
+            <div class="container"> 
+            <h2 class="name"><!-- Will be populated by JavaScript --></h2>
+                <h2 class="job-title"><!-- Will be populated by JavaScript --></h2>
+                <div class="metadata-grid">
+                    <div class="metadata-item"> <!-- Rough Date -->
+                        <span class="metadata-label">Date</span>
+                        <span class="metadata-value rough-date"><!-- populated by JavaScript --></span>
+                    </div>
+                    <div class="metadata-item"> <!-- Skills -->
+                        <span class="metadata-label">Skills</span>
+                        <span class="metadata-value skills"><!-- populated by JavaScript --></span>
+                    </div>
+                    <div class="metadata-item"> <!-- Content -->
+                        <span class="metadata-label">Extra Content</span>
+                        <a href="/assets/files/ian_wiatric_resume_N.pdf" target="_blank" class="btn metadata-value company-link">Visit Site</a>
+                    </div> 
+                </div>
+                <div class="metadata-item" style="margin-bottom: var(--space-lg);"> <!-- Summary-->
+                    <span class="metadata-label">Summary</span>
+                    <span class="metadata-value description"><!-- Will be populated by JavaScript --></span>
+                </div>
+                <h3>Background</h3>
+                <p>
+                    I would not consider myself an accomplished artist by any stretch of the imagination - but that doesn't mean I can't
+                    enjoy the pursuit! I was exposed to CAD software for architecture in high school and enjoyed it thoroughly. I found
+                    myself trying to make art, designs, and textures in Onshape. I eventually discovered Blender during the coronavirus
+                    lockdown and used my newfound free time to begin learning the software. Similarly, I was inspired by unit operations to
+                    create the vector art background of this site in Adobe Illustrator.
+                </p>
+                <p>
+                    I am nowhere close to producing at a professional level, but I find it to be an engaging and fun hobby. The images
+                    here are rendered from projects, tutorials, and scratch work I've made so far. I plan to collaborate with peers by
+                    producing models they can integrate into their own games and projects.
+                </p>
+            </div>
+
+        <!-- Image Gallery -->
+            <div class="container">
+                <h2>Project Gallery</h2>
+                <div>
+                    <div class="gallery-main">
+                        <img id="main-image" src="hero.png" alt="default initializing image">
+                    </div>
+                    <div class="gallery-thumbnails" id="thumbnails-container">
+                        <!-- Thumbnails will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div style="background: linear-gradient(transparent,rgb(51, 51, 51)); min-height: 75px;"></div>
+
+        </section>
+
+    <!-- Footer -->
+    <script src="../../load-footer.js"></script>
+
+    <script>
+        // Navigation highlighting
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                const professionalLink = document.getElementById('nav-projects');
+                if (professionalLink) {
+                    professionalLink.classList.add('active');
+                }
+            }, 100);
+        });
+
+         // Gallery image data
+        const galleryImages = [
+            {
+                src: "MyFirstRender8.png",
+                thumbnail: "MyFirstRender8.png",
+                alt: "Progression of the class donut project"
+            },
+            {
+                src: "MyFirstRender.png1",
+                thumbnail: "MyFirstRender1.png",
+                alt: "Progression of the class donut project"
+            },
+            {
+                src: "MyFirstRender2.png",
+                thumbnail: "MyFirstRender2.png",
+                alt: "Progression of the class donut project"
+            },
+            {
+                src: "MyFirstRender3.png",
+                thumbnail: "MyFirstRender3.png",
+                alt: "Progression of the class donut project"
+            },
+            {
+                src: "MyFirstRender4.png",
+                thumbnail: "MyFirstRender4.png",
+                alt: "Progression of the class donut project"
+            },
+            {
+                src: "MyFirstRender5.png",
+                thumbnail: "MyFirstRender5.png",
+                alt: "Progression of the class donut project"
+            },
+            {
+                src: "MyFirstRender6.png",
+                thumbnail: "MyFirstRender6.png",
+                alt: "Progression of the class donut project"
+            },
+            {
+                src: "MyFirstRender7.png",
+                thumbnail: "MyFirstRender7.png",
+                alt: "Progression of the class donut project"
+            }
+        ]; 
+
+        // Populate gallery
+        function initializeGallery() {
+            const container = document.getElementById('thumbnails-container');
+            
+            galleryImages.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.onclick = () => changeImage(thumbnail, image.src, image.alt);
+                
+                const img = document.createElement('img');
+                img.src = image.thumbnail;
+                img.alt = `${image.alt} thumbnail`;
+                
+                thumbnail.appendChild(img);
+                container.appendChild(thumbnail);
+            });
+
+            // Set initial main image
+            if (galleryImages.length > 0) {
+                const mainImage = document.getElementById('main-image');
+                mainImage.src = galleryImages[0].src;
+                mainImage.alt = galleryImages[0].alt;
+            }
+        }
+
+        // Modified changeImage function
+        function changeImage(thumbnail, src, alt) {
+            const mainImage = document.getElementById('main-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnail.classList.add('active');
+
+            mainImage.src = src;
+            mainImage.alt = alt;
+        }
+
+        // Initialize gallery when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeGallery);
+
+        // Keep existing keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            const thumbnails = Array.from(document.querySelectorAll('.thumbnail'));
+            const activeThumbnail = document.querySelector('.thumbnail.active');
+            const currentIndex = thumbnails.indexOf(activeThumbnail);
+
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                thumbnails[currentIndex - 1].click();
+            } else if (e.key === 'ArrowRight' && currentIndex < thumbnails.length - 1) {
+                thumbnails[currentIndex + 1].click();
+            }
+        });
+ 
+        // Get current page's folder name
+        function getCurrentFolderName() {
+        const url = new URL(window.location.href);
+        const pathSegments = url.pathname.split('/').filter(segment => segment);
+        const folderName = pathSegments[pathSegments.length - 2] || 'root';
+        return decodeURIComponent(folderName);
+        }
+    </script>
+</body>
+
+</html>

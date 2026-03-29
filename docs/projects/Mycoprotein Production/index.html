@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials & Process Engineer - Blue Origin</title>
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/experience-style.css">
+</head>
+
+
+<!-- Metadata Gathering-->
+<script>
+    // Fetch and populate metadata from JSON
+    fetch('../project.json')
+        .then(response => response.json())
+        .then(data => {
+            // Find the entry that matches this project name
+            const RelevantExpData = data.project.find(entry => entry.name === getCurrentFolderName());
+
+            if (RelevantExpData) {// Update metadata values
+                // If any values are not used it will break the rest of them. That's why some are commented out.
+                document.querySelector('.name').textContent = RelevantExpData.name;
+                document.querySelector('.description').textContent = RelevantExpData.description;
+                document.querySelector('.skills').textContent = RelevantExpData.skills;
+                //document.querySelector('.content').href = RelevantExpData.content;
+                document.querySelector('.rough-date').textContent = RelevantExpData.roughDate;
+                //document.querySelector('.location').textContent = RelevantExpData.location;
+            }
+        })
+        .catch(error => console.error('Error loading project data:', error));
+        
+</script>
+
+<body>    
+    <main>
+        <!-- Header -->
+        <script src="../../load-header.js"></script>
+        
+        <!-- Hero Section -->  
+        <section class="experience-hero-section">
+            <img src="hero.png" class="experience-hero-image" >
+        </section>
+        
+        <!-- Gradient Line-->
+        <div style="background: linear-gradient(rgb(255, 255, 255), transparent); min-height: max(50px, 75px);"></div>
+
+        <!-- Content -->
+        <section style="background: url(../../assets/hr-pipedesign.png); background-size: contain; padding-top: 0; ">
+            <!-- The gradient line that smooths the transition between the white header and background -->
+            <div style="background: linear-gradient(rgb(51, 51, 51),  transparent ); min-height: 75px;"></div>
+            <div class="container"> 
+            <h2 class="name"><!-- Will be populated by JavaScript --></h2>
+                <h2 class="job-title"><!-- Will be populated by JavaScript --></h2>
+                <div class="metadata-grid">
+                    <div class="metadata-item"> <!-- Rough Date -->
+                        <span class="metadata-label">Date</span>
+                        <span class="metadata-value rough-date"><!-- populated by JavaScript --></span>
+                    </div>
+                    <div class="metadata-item"> <!-- Skills -->
+                        <span class="metadata-label">Skills</span>
+                        <span class="metadata-value skills"><!-- populated by JavaScript --></span>
+                    </div>
+                    <div class="metadata-item"> <!-- Content -->
+                        <span class="metadata-label">Extra Content</span>
+                        <a href="/assets/files/ian_wiatric_resume_N.pdf" target="_blank" class="btn metadata-value company-link">Visit Site</a>
+                    </div> 
+                </div>
+                <div class="metadata-item" style="margin-bottom: var(--space-lg);"> <!-- Summary-->
+                    <span class="metadata-label">Summary</span>
+                    <span class="metadata-value description"><!-- Will be populated by JavaScript --></span>
+                </div>
+                <h3>Introduction</h3>
+                <p>
+                    Northeastern University requires undergraduates to complete a capstone design project. For chemical engineers, this
+                    means working in a team to create a comprehensive process design per an assigned category. Our design prompt was:
+                    sustainably produce edible protein alternatives using microbial fermentation.
+                </p>
+
+                <h3>Why This Matters</h3>
+                <p>
+                    The global population is projected to reach 9.7 billion by 2050. However, the need for sustainable and plentiful protein
+                    sources to feed this new generation remains woefully unmet. As of 2019, there were approximately 150 million cases of
+                    profound protein malnutrition. Traditional animal husbandry is unlikely to meet this need due to its intensive water
+                    consumption, greenhouse gas emissions (GGE), and land usage. Producing mycoprotein via microbial fermentation has
+                    emerged as a promising method to reduce carbon footprint while addressing global nutritional needs. Some successful
+                    commercialization ventures currently exist; however, industrial processes must be improved to increase cost
+                    competitiveness to drive widespread adoption.
+                </p>
+
+                <h3>A Novel Idea</h3>
+                <p>
+                    Current industrial processes use a refined sugar (typically glucose) feedstock to provide the caloric energy for
+                    sustaining
+                    microbes. This is already a massive improvement towards sustainability compared to the incidental emissions of
+                    husbandry. However, we sought to use an agricultural waste product as our feedstock in order to radically reduce
+                    production costs and GGE footprint. This technique has been demonstrated to great success in similar industries like
+                    bioethanol.
+                </p>
+                <p>
+                    I ultimately conceived of the idea to use a totally novel feedstock for this application - coffee silver skins
+                    (CSS). CSS is released in a dry, papery particles as coffee beans are roasted. It has several advantages:
+                </p>
+                <ul>
+                    <li>Waste feedstocks typically dirty and impure by the very nature of them being waste. CSS, however, is the sole
+                        byproduct of its unit operation. It is exceptionally pure and suitable for batch control. This addresses one of
+                        the greatest
+                        challenges in renewable bioprocessing: repeatability.</li>
+                    <li>It is rich with cellulose and hemicellulose polymers, which
+                        are the ultimate source of sugars for saccharification and subsequent fermentation.</li>
+                    <li>CSS costs nothing, maybe even
+                        less. Producers are currently saddled with disposal cost, who would happily sell it for low or no cost. It is
+                        produced at scale. Our estimates predict at least 8,300 tons are produced in the US annually.</li>
+                </ul>
+                <p>
+                    Although saccharification of CSS has been discussed academically and mycoprotein production occurs commercially, the
+                    combination of these two technologies are, to the best of my knowledge, unexplored.
+                </p>
+                                    
+                <h3>Development & Deliverables</h3>
+                <p>
+                    Our team met several times throughout the week on both a scheduled and emergent basis. Tasks were assigned and
+                    tracked in a Gantt chart. Weekly memos were used to inform our stakeholders and track upcoming deliverables, tasks,
+                    and roadblocks. We met with industry professionals to refine our understand of the economic and technological
+                    landscape.
+                </p>
+                <p>
+                    We succeeded in delivering both an experimental and computational proof of concept. Our background research,
+                    economic analysis, and proof of concept culminated in a public symposium presentation and final report. We
+                    ultimately found a plant at our proposed scale was not economically feasible. There are, however, plenty of
+                    opportunities to improve experimental and computational methods which may ultimately reverse this conclusion.
+                </p>
+                
+                <h3>Acknowledgements</h3>
+                <p>
+                    This project is the shared work of Shreyas Ravichandar, Thomas Gnann, Firas Zarrouk, and Andrew Larocque. They all
+                    deserve credit for the work presented here. We are grateful to Dr. Kate Honda for being immensely flexible with
+                    providing lab access and materials. Our industrial mentor, Christopher McLaughlin, helped refine our idea and
+                    provide economic perspective. Professor Courtney Pfluger of Northeastern University was incredibly generous with her
+                    time and expertise. We appreciate the insightful discussions with Mike Smith and Professor Benjamin Woolston.
+                </p>
+            </div>
+
+        <!-- Image Gallery -->
+            <div class="container">
+                <h2>Project Gallery</h2>
+                <div>
+                    <div class="gallery-main">
+                        <img id="main-image" src="hero.png" alt="default initializing image">
+                    </div>
+                    <div class="gallery-thumbnails" id="thumbnails-container">
+                        <!-- Thumbnails will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div style="background: linear-gradient(transparent,rgb(51, 51, 51)); min-height: 75px;"></div>
+
+        </section>
+
+    <!-- Footer -->
+    <script src="../../load-footer.js"></script>
+
+    <script>
+        // Navigation highlighting
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                const professionalLink = document.getElementById('nav-projects');
+                if (professionalLink) {
+                    professionalLink.classList.add('active');
+                }
+            }, 100);
+        });
+
+         // Gallery image data
+        const galleryImages = [
+            {
+
+                src: "yasara.jpg",
+                thumbnail: "yasara.jpg",
+                alt: "A generic image of the YASARA software I used for model refinement. Credit: YASARA Youtube"
+            },
+            {
+                src: "unrefRAY.gif",
+                thumbnail: "unrefRAY.gif",
+                alt: "3D render of one unrefined BAM model used for simulation"
+            },
+            {
+                src: "hero.png",
+                thumbnail: "hero.png",
+                alt: "Complete measured structure of a related BAM protein with all subunits visible"
+            }
+        ]; 
+
+        // Populate gallery
+        function initializeGallery() {
+            const container = document.getElementById('thumbnails-container');
+            
+            galleryImages.forEach((image, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.onclick = () => changeImage(thumbnail, image.src, image.alt);
+                
+                const img = document.createElement('img');
+                img.src = image.thumbnail;
+                img.alt = `${image.alt} thumbnail`;
+                
+                thumbnail.appendChild(img);
+                container.appendChild(thumbnail);
+            });
+
+            // Set initial main image
+            if (galleryImages.length > 0) {
+                const mainImage = document.getElementById('main-image');
+                mainImage.src = galleryImages[0].src;
+                mainImage.alt = galleryImages[0].alt;
+            }
+        }
+
+        // Modified changeImage function
+        function changeImage(thumbnail, src, alt) {
+            const mainImage = document.getElementById('main-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnail.classList.add('active');
+
+            mainImage.src = src;
+            mainImage.alt = alt;
+        }
+
+        // Initialize gallery when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeGallery);
+
+        // Keep existing keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            const thumbnails = Array.from(document.querySelectorAll('.thumbnail'));
+            const activeThumbnail = document.querySelector('.thumbnail.active');
+            const currentIndex = thumbnails.indexOf(activeThumbnail);
+
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                thumbnails[currentIndex - 1].click();
+            } else if (e.key === 'ArrowRight' && currentIndex < thumbnails.length - 1) {
+                thumbnails[currentIndex + 1].click();
+            }
+        });
+ 
+        // Get current page's folder name
+        function getCurrentFolderName() {
+        const url = new URL(window.location.href);
+        const pathSegments = url.pathname.split('/').filter(segment => segment);
+        const folderName = pathSegments[pathSegments.length - 2] || 'root';
+        return decodeURIComponent(folderName);
+        }
+    </script>
+</body>
+
+</html>
